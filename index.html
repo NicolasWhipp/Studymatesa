@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Study Mate SA — Your 24/7 AI Tutor on WhatsApp</title>
-  <meta name="description" content="CAPS-aligned AI tutoring on WhatsApp for Grade 10, 11 and 12 learners. Always available, always affordable." />
+  <meta name="description" content="CAPS-aligned AI tutoring on WhatsApp for Grade 12 learners. Always available, always affordable." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Nunito:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
@@ -27,7 +27,6 @@
       --sm-text:      var(--sm-navy);
       --sm-text-soft: rgba(0,24,88,0.65);
       --sm-accent:    var(--sm-pink);
-      --sm-success:   var(--sm-mint);
       --sm-line:      rgba(0,24,88,0.1);
 
       --sm-font-display: 'Bricolage Grotesque', system-ui, sans-serif;
@@ -46,7 +45,6 @@
       --sm-transition: 0.22s ease;
     }
 
-    /* ─── Reset ─────────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
@@ -60,7 +58,6 @@
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
 
-    /* ─── Utilities ─────────────────────────────────────────────────── */
     .container {
       width: 100%;
       max-width: 1140px;
@@ -81,7 +78,6 @@
       padding: 5px 14px;
       margin-bottom: 14px;
     }
-
     .chip--navy {
       color: var(--sm-cream);
       background: rgba(255,255,255,0.12);
@@ -106,11 +102,7 @@
       padding: 13px 28px;
       border: 2px solid transparent;
       cursor: pointer;
-      transition:
-        transform var(--sm-transition),
-        box-shadow var(--sm-transition),
-        background var(--sm-transition),
-        color var(--sm-transition);
+      transition: transform var(--sm-transition), box-shadow var(--sm-transition), background var(--sm-transition), color var(--sm-transition);
     }
     .btn:hover { transform: translateY(-2px); }
     .btn:active { transform: translateY(0); }
@@ -120,46 +112,32 @@
       color: #fff;
       box-shadow: 0 4px 20px rgba(245,130,174,0.38);
     }
-    .btn-primary:hover {
-      background: #e86fa0;
-      box-shadow: 0 6px 28px rgba(245,130,174,0.48);
-    }
+    .btn-primary:hover { background: #e86fa0; box-shadow: 0 6px 28px rgba(245,130,174,0.48); }
 
     .btn-navy {
       background: var(--sm-navy);
       color: var(--sm-cream);
       box-shadow: var(--sm-shadow-sm);
     }
-    .btn-navy:hover {
-      background: var(--sm-ink-soft);
-      box-shadow: var(--sm-shadow-md);
-    }
+    .btn-navy:hover { background: var(--sm-ink-soft); box-shadow: var(--sm-shadow-md); }
 
     .btn-outline {
       background: transparent;
       color: var(--sm-navy);
       border-color: var(--sm-navy);
     }
-    .btn-outline:hover {
-      background: var(--sm-navy);
-      color: var(--sm-cream);
-    }
+    .btn-outline:hover { background: var(--sm-navy); color: var(--sm-cream); }
 
     .btn-outline-cream {
       background: transparent;
       color: var(--sm-cream);
       border-color: rgba(254,246,228,0.55);
     }
-    .btn-outline-cream:hover {
-      background: rgba(254,246,228,0.12);
-      border-color: var(--sm-cream);
-    }
+    .btn-outline-cream:hover { background: rgba(254,246,228,0.12); border-color: var(--sm-cream); }
 
     .btn-lg { font-size: 1.05rem; padding: 16px 36px; }
 
-    /* ═══════════════════════════════════════════════════════════════════
-       NAVIGATION
-    ═══════════════════════════════════════════════════════════════════ */
+    /* ═══ NAVIGATION ════════════════════════════════════════════════════ */
     .nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -170,10 +148,7 @@
       border-bottom: 1px solid transparent;
       transition: border-color 0.25s, box-shadow 0.25s;
     }
-    .nav.scrolled {
-      border-bottom-color: var(--sm-line);
-      box-shadow: var(--sm-shadow-sm);
-    }
+    .nav.scrolled { border-bottom-color: var(--sm-line); box-shadow: var(--sm-shadow-sm); }
     .nav__inner {
       display: flex;
       align-items: center;
@@ -181,18 +156,10 @@
       height: 70px;
       gap: 20px;
     }
-    .nav__logo {
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-    }
+    .nav__logo { display: flex; align-items: center; flex-shrink: 0; }
     .nav__logo svg { height: 36px; width: auto; }
 
-    .nav__links {
-      display: none;
-      align-items: center;
-      gap: 30px;
-    }
+    .nav__links { display: none; align-items: center; gap: 30px; }
     .nav__links a {
       font-family: var(--sm-font-display);
       font-size: 0.88rem;
@@ -203,42 +170,25 @@
     .nav__links a:hover { color: var(--sm-navy); }
 
     .nav__hamburger {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 6px;
-      background: none;
-      border: none;
+      display: flex; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 6px; background: none; border: none;
     }
     .nav__hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--sm-navy);
-      border-radius: 2px;
-      transition: all 0.25s;
+      display: block; width: 24px; height: 2px;
+      background: var(--sm-navy); border-radius: 2px; transition: all 0.25s;
     }
     .nav__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav__hamburger.open span:nth-child(2) { opacity: 0; }
     .nav__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     .nav__mobile {
-      display: none;
-      flex-direction: column;
-      background: var(--sm-cream);
-      border-top: 1px solid var(--sm-line);
-      padding: 20px 24px;
-      gap: 4px;
+      display: none; flex-direction: column;
+      background: var(--sm-cream); border-top: 1px solid var(--sm-line); padding: 20px 24px; gap: 4px;
     }
     .nav__mobile.open { display: flex; }
     .nav__mobile a {
-      font-family: var(--sm-font-display);
-      font-weight: 600;
-      color: var(--sm-text-soft);
-      padding: 10px 0;
-      border-bottom: 1px solid var(--sm-line);
-      transition: color var(--sm-transition);
+      font-family: var(--sm-font-display); font-weight: 600; color: var(--sm-text-soft);
+      padding: 10px 0; border-bottom: 1px solid var(--sm-line); transition: color var(--sm-transition);
     }
     .nav__mobile a:last-child { border-bottom: none; }
     .nav__mobile a:hover { color: var(--sm-navy); }
@@ -249,9 +199,7 @@
       .nav__mobile { display: none !important; }
     }
 
-    /* ═══════════════════════════════════════════════════════════════════
-       HERO
-    ═══════════════════════════════════════════════════════════════════ */
+    /* ═══ HERO ══════════════════════════════════════════════════════════ */
     .hero {
       background: var(--sm-navy);
       background-image:
@@ -307,617 +255,296 @@
       line-height: 1.72;
     }
     .hero__ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: center;
-      position: relative;
-      z-index: 1;
+      display: flex; flex-wrap: wrap; gap: 14px;
+      justify-content: center; position: relative; z-index: 1;
     }
 
-    /* ═══════════════════════════════════════════════════════════════════
-       WHO WE ARE
-    ═══════════════════════════════════════════════════════════════════ */
-    .about {
-      background: var(--sm-cream);
-      padding: 96px 0;
-    }
+    /* ═══ WHO WE ARE ════════════════════════════════════════════════════ */
+    .about { background: var(--sm-cream); padding: 96px 0; }
     .about__inner {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 56px;
-      align-items: center;
+      display: grid; grid-template-columns: 1fr; gap: 56px; align-items: center;
     }
     .about__copy h2 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      margin-bottom: 20px;
-      letter-spacing: -0.02em;
+      font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 20px; letter-spacing: -0.02em;
     }
     .about__copy h2 span {
-      font-family: var(--sm-font-serif);
-      font-style: italic;
-      font-weight: 400;
-      color: var(--sm-pink);
+      font-family: var(--sm-font-serif); font-style: italic; font-weight: 400; color: var(--sm-pink);
     }
     .about__copy p {
-      font-size: 1.02rem;
-      color: var(--sm-text-soft);
-      line-height: 1.78;
-      margin-bottom: 18px;
+      font-size: 1.02rem; color: var(--sm-text-soft); line-height: 1.78; margin-bottom: 18px;
     }
     .about__copy p:last-child { margin-bottom: 0; }
 
-    .about__cards {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
+    .about__cards { display: grid; grid-template-columns: 1fr; gap: 16px; }
     .value-card {
-      background: var(--sm-cream-2);
-      border: 1px solid var(--sm-line);
-      border-radius: var(--sm-r-lg);
-      padding: 26px 24px;
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
+      background: var(--sm-cream-2); border: 1px solid var(--sm-line);
+      border-radius: var(--sm-r-lg); padding: 26px 24px;
+      display: flex; gap: 18px; align-items: flex-start;
       transition: transform var(--sm-transition), box-shadow var(--sm-transition);
     }
-    .value-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--sm-shadow-md);
-    }
-    .value-card__icon {
-      font-size: 2rem;
-      flex-shrink: 0;
-      line-height: 1;
-    }
-    .value-card__title {
-      font-family: var(--sm-font-display);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--sm-navy);
-      margin-bottom: 6px;
-    }
-    .value-card__text {
-      font-size: 0.9rem;
-      color: var(--sm-text-soft);
-      line-height: 1.65;
-    }
+    .value-card:hover { transform: translateY(-4px); box-shadow: var(--sm-shadow-md); }
+    .value-card__icon { font-size: 2rem; flex-shrink: 0; line-height: 1; }
+    .value-card__title { font-family: var(--sm-font-display); font-size: 1rem; font-weight: 700; color: var(--sm-navy); margin-bottom: 6px; }
+    .value-card__text { font-size: 0.9rem; color: var(--sm-text-soft); line-height: 1.65; }
 
     @media (min-width: 640px) { .about__cards { grid-template-columns: 1fr 1fr; } }
-    @media (min-width: 900px) {
-      .about__inner { grid-template-columns: 1fr 1fr; }
-    }
+    @media (min-width: 900px) { .about__inner { grid-template-columns: 1fr 1fr; } }
 
-    /* ═══════════════════════════════════════════════════════════════════
-       HOW IT WORKS
-    ═══════════════════════════════════════════════════════════════════ */
+    /* ═══ HOW IT WORKS ══════════════════════════════════════════════════ */
     .hiw {
       background: var(--sm-navy);
       background-image:
         radial-gradient(ellipse 70% 50% at 80% 20%, rgba(245,130,174,0.14) 0%, transparent 60%),
         radial-gradient(ellipse 50% 60% at 15% 70%, rgba(255,209,102,0.07) 0%, transparent 55%);
-      padding: 96px 0;
-      text-align: center;
-      color: var(--sm-cream);
+      padding: 96px 0; text-align: center; color: var(--sm-cream);
     }
-    .hiw h2 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      color: var(--sm-cream);
-      margin-bottom: 14px;
-      letter-spacing: -0.02em;
-    }
-    .hiw__sub {
-      color: rgba(254,246,228,0.65);
-      max-width: 520px;
-      margin: 0 auto 60px;
-      font-size: 1.02rem;
-    }
+    .hiw h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--sm-cream); margin-bottom: 14px; letter-spacing: -0.02em; }
+    .hiw__sub { color: rgba(254,246,228,0.65); max-width: 520px; margin: 0 auto 60px; font-size: 1.02rem; }
 
-    .hiw__steps {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      max-width: 960px;
-      margin: 0 auto 64px;
-      position: relative;
-    }
-
+    .hiw__steps { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 960px; margin: 0 auto 64px; }
     .step-card {
-      background: rgba(255,255,255,0.055);
-      border: 1px solid rgba(254,246,228,0.12);
-      border-radius: var(--sm-r-lg);
-      padding: 36px 28px;
-      text-align: left;
-      backdrop-filter: blur(4px);
+      background: rgba(255,255,255,0.055); border: 1px solid rgba(254,246,228,0.12);
+      border-radius: var(--sm-r-lg); padding: 36px 28px; text-align: left; backdrop-filter: blur(4px);
       transition: background var(--sm-transition), transform var(--sm-transition);
     }
-    .step-card:hover {
-      background: rgba(255,255,255,0.09);
-      transform: translateY(-4px);
-    }
+    .step-card:hover { background: rgba(255,255,255,0.09); transform: translateY(-4px); }
     .step-card__num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      background: var(--sm-pink);
-      color: #fff;
-      font-family: var(--sm-font-display);
-      font-weight: 800;
-      font-size: 1rem;
-      margin-bottom: 18px;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px; border-radius: 50%; background: var(--sm-pink);
+      color: #fff; font-family: var(--sm-font-display); font-weight: 800; font-size: 1rem; margin-bottom: 18px;
     }
     .step-card__icon { font-size: 1.8rem; margin-bottom: 12px; }
-    .step-card__title {
-      font-family: var(--sm-font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--sm-cream);
-      margin-bottom: 10px;
-    }
-    .step-card__text {
-      font-size: 0.92rem;
-      color: rgba(254,246,228,0.68);
-      line-height: 1.68;
-    }
+    .step-card__title { font-family: var(--sm-font-display); font-size: 1.1rem; font-weight: 700; color: var(--sm-cream); margin-bottom: 10px; }
+    .step-card__text { font-size: 0.92rem; color: rgba(254,246,228,0.68); line-height: 1.68; }
 
     @media (min-width: 640px) { .hiw__steps { grid-template-columns: repeat(3, 1fr); } }
 
     /* WhatsApp Mock */
-    .wa-mock {
-      max-width: 420px;
-      margin: 0 auto;
-      border-radius: var(--sm-r-lg);
-      overflow: hidden;
-      box-shadow: var(--sm-shadow-lg);
-      font-family: 'Segoe UI', sans-serif;
-    }
-    .wa-mock__header {
-      background: #075E54;
-      color: #fff;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .wa-mock__avatar {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: #25D366;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; flex-shrink: 0;
-    }
+    .wa-mock { max-width: 420px; margin: 0 auto; border-radius: var(--sm-r-lg); overflow: hidden; box-shadow: var(--sm-shadow-lg); font-family: 'Segoe UI', sans-serif; }
+    .wa-mock__header { background: #075E54; color: #fff; padding: 12px 16px; display: flex; align-items: center; gap: 12px; }
+    .wa-mock__avatar { width: 40px; height: 40px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
     .wa-mock__name { font-weight: 700; font-size: 0.97rem; }
     .wa-mock__status { font-size: 0.74rem; opacity: 0.75; margin-top: 1px; }
-    .wa-mock__body {
-      background: #ece5dd;
-      padding: 14px 12px;
-      display: flex; flex-direction: column; gap: 10px;
-      min-height: 240px;
-    }
-    .wa-bubble {
-      max-width: 85%;
-      border-radius: 12px;
-      padding: 9px 13px;
-      font-size: 0.86rem;
-      line-height: 1.55;
-    }
-    .wa-bubble--student {
-      background: #dcf8c6;
-      align-self: flex-end;
-      border-bottom-right-radius: 4px;
-    }
-    .wa-bubble--bot {
-      background: #fff;
-      align-self: flex-start;
-      border-bottom-left-radius: 4px;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.09);
-    }
-    .wa-bubble__time {
-      font-size: 0.67rem;
-      color: rgba(0,0,0,0.38);
-      text-align: right;
-      margin-top: 4px;
-    }
+    .wa-mock__body { background: #ece5dd; padding: 14px 12px; display: flex; flex-direction: column; gap: 10px; min-height: 240px; }
+    .wa-bubble { max-width: 85%; border-radius: 12px; padding: 9px 13px; font-size: 0.86rem; line-height: 1.55; }
+    .wa-bubble--student { background: #dcf8c6; align-self: flex-end; border-bottom-right-radius: 4px; }
+    .wa-bubble--bot { background: #fff; align-self: flex-start; border-bottom-left-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.09); }
+    .wa-bubble__time { font-size: 0.67rem; color: rgba(0,0,0,0.38); text-align: right; margin-top: 4px; }
     .wa-bubble__tick { color: #53bdeb; }
-    .wa-bubble__sender {
-      font-weight: 700; font-size: 0.78rem;
-      color: #075E54; margin-bottom: 4px;
-    }
+    .wa-bubble__sender { font-weight: 700; font-size: 0.78rem; color: #075E54; margin-bottom: 4px; }
 
-    /* ═══════════════════════════════════════════════════════════════════
-       WHY AI-TUTORING
-    ═══════════════════════════════════════════════════════════════════ */
-    .why {
-      background: var(--sm-cream);
-      padding: 96px 0;
-    }
-    .why__head {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-    .why__head h2 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      margin-bottom: 14px;
-      letter-spacing: -0.02em;
-    }
-    .why__head h2 em {
-      font-family: var(--sm-font-serif);
-      font-style: italic;
-      font-weight: 400;
-      color: var(--sm-pink);
-    }
-    .why__head p {
-      color: var(--sm-text-soft);
-      max-width: 560px;
-      margin: 0 auto;
-      font-size: 1.02rem;
-    }
+    /* ═══ WHY AI-TUTORING ═══════════════════════════════════════════════ */
+    .why { background: var(--sm-cream); padding: 96px 0; }
+    .why__head { text-align: center; margin-bottom: 64px; }
+    .why__head h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 14px; letter-spacing: -0.02em; }
+    .why__head h2 em { font-family: var(--sm-font-serif); font-style: italic; font-weight: 400; color: var(--sm-pink); }
+    .why__head p { color: var(--sm-text-soft); max-width: 560px; margin: 0 auto; font-size: 1.02rem; }
 
-    .why__grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      max-width: 980px;
-      margin: 0 auto 64px;
-    }
-
+    .why__grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 980px; margin: 0 auto; }
     .why-card {
-      background: var(--sm-cream-2);
-      border: 1px solid var(--sm-line);
-      border-radius: var(--sm-r-lg);
-      padding: 32px 28px;
+      background: var(--sm-cream-2); border: 1px solid var(--sm-line); border-radius: var(--sm-r-lg); padding: 32px 28px;
       transition: transform var(--sm-transition), box-shadow var(--sm-transition);
     }
-    .why-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--sm-shadow-md);
-    }
-    .why-card--highlight {
-      background: var(--sm-navy);
-      border-color: var(--sm-navy);
-      color: var(--sm-cream);
-    }
+    .why-card:hover { transform: translateY(-4px); box-shadow: var(--sm-shadow-md); }
+    .why-card--highlight { background: var(--sm-navy); border-color: var(--sm-navy); color: var(--sm-cream); }
     .why-card__icon { font-size: 2.2rem; margin-bottom: 14px; }
-    .why-card__title {
-      font-family: var(--sm-font-display);
-      font-size: 1.08rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
+    .why-card__title { font-family: var(--sm-font-display); font-size: 1.08rem; font-weight: 700; margin-bottom: 10px; }
     .why-card--highlight .why-card__title { color: var(--sm-cream); }
-    .why-card__text {
-      font-size: 0.92rem;
-      color: var(--sm-text-soft);
-      line-height: 1.68;
-    }
+    .why-card__text { font-size: 0.92rem; color: var(--sm-text-soft); line-height: 1.68; }
     .why-card--highlight .why-card__text { color: rgba(254,246,228,0.72); }
 
     @media (min-width: 640px) { .why__grid { grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 900px) { .why__grid { grid-template-columns: repeat(3, 1fr); } }
 
-    /* Comparison table */
-    .comparison {
-      max-width: 860px;
-      margin: 0 auto;
-      overflow-x: auto;
-    }
-    .comparison table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.93rem;
-    }
-    .comparison thead th {
-      font-family: var(--sm-font-display);
-      font-weight: 700;
-      font-size: 0.82rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 14px 20px;
-      text-align: left;
-      border-bottom: 2px solid var(--sm-line);
-      color: var(--sm-text-soft);
-    }
-    .comparison thead th:not(:first-child) { text-align: center; }
-    .comparison thead th.col-sm {
-      background: var(--sm-navy);
-      color: var(--sm-cream);
-      border-radius: var(--sm-r-sm) var(--sm-r-sm) 0 0;
-    }
-    .comparison tbody tr {
-      border-bottom: 1px solid var(--sm-line);
-      transition: background var(--sm-transition);
-    }
-    .comparison tbody tr:last-child { border-bottom: none; }
-    .comparison tbody tr:hover { background: rgba(245,130,174,0.04); }
-    .comparison tbody td {
-      padding: 14px 20px;
-      color: var(--sm-text);
-    }
-    .comparison tbody td.col-sm {
-      background: rgba(0,24,88,0.04);
-      text-align: center;
-      font-weight: 700;
-    }
-    .comparison tbody td:not(:first-child):not(.col-sm) { text-align: center; color: var(--sm-text-soft); }
-    .tick { color: var(--sm-mint); font-size: 1.1rem; }
-    .cross { color: var(--sm-coral); font-size: 1.1rem; }
-    .partial { color: var(--sm-butter); font-size: 1rem; }
+    /* ═══ SUBJECTS ══════════════════════════════════════════════════════ */
+    .subjects { background: var(--sm-pink-2); padding: 88px 0; text-align: center; }
+    .subjects h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 14px; letter-spacing: -0.018em; }
+    .subjects__sub { color: var(--sm-text-soft); max-width: 540px; margin: 0 auto 52px; font-size: 1.02rem; }
 
-    /* ═══════════════════════════════════════════════════════════════════
-       SUBJECTS
-    ═══════════════════════════════════════════════════════════════════ */
-    .subjects {
-      background: var(--sm-pink-2);
-      padding: 88px 0;
-      text-align: center;
-    }
-    .subjects h2 {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      margin-bottom: 14px;
-      letter-spacing: -0.018em;
-    }
-    .subjects__sub {
-      color: var(--sm-text-soft);
-      max-width: 540px;
-      margin: 0 auto 52px;
-      font-size: 1.02rem;
-    }
-    .subjects__grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-      max-width: 900px;
-      margin: 0 auto 36px;
-    }
+    .subjects__grid { display: grid; grid-template-columns: 1fr; gap: 18px; max-width: 900px; margin: 0 auto 36px; }
     .subject-card {
-      background: var(--sm-cream);
-      border: 2px solid var(--sm-line);
-      border-radius: var(--sm-r-lg);
-      padding: 28px 24px;
-      text-align: left;
+      background: var(--sm-cream); border: 2px solid var(--sm-line); border-radius: var(--sm-r-lg); padding: 28px 24px; text-align: left;
       transition: transform var(--sm-transition), border-color var(--sm-transition), box-shadow var(--sm-transition);
     }
-    .subject-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--sm-pink);
-      box-shadow: var(--sm-shadow-md);
-    }
+    .subject-card:hover { transform: translateY(-4px); border-color: var(--sm-pink); box-shadow: var(--sm-shadow-md); }
     .subject-card__icon { font-size: 2.2rem; margin-bottom: 12px; }
-    .subject-card__name {
-      font-family: var(--sm-font-display);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--sm-navy);
-      margin-bottom: 6px;
-    }
+    .subject-card__name { font-family: var(--sm-font-display); font-size: 1.05rem; font-weight: 700; color: var(--sm-navy); margin-bottom: 6px; }
     .subject-card__grades {
-      display: inline-block;
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--sm-pink);
-      background: var(--sm-pink-2);
-      border-radius: var(--sm-r-pill);
-      padding: 3px 10px;
-      margin-bottom: 10px;
+      display: inline-block; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--sm-pink); background: var(--sm-pink-2); border-radius: var(--sm-r-pill); padding: 3px 10px; margin-bottom: 10px;
     }
-    .subject-card__desc {
-      font-size: 0.88rem;
-      color: var(--sm-text-soft);
-      line-height: 1.62;
-    }
-    .subjects__note {
-      font-size: 0.9rem;
-      color: var(--sm-text-soft);
-      max-width: 560px;
-      margin: 0 auto;
-    }
+    .subject-card__desc { font-size: 0.88rem; color: var(--sm-text-soft); line-height: 1.62; }
+    .subjects__note { font-size: 0.9rem; color: var(--sm-text-soft); max-width: 560px; margin: 0 auto; }
 
     @media (min-width: 540px) { .subjects__grid { grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 900px) { .subjects__grid { grid-template-columns: repeat(3, 1fr); } }
 
-    /* ═══════════════════════════════════════════════════════════════════
-       CONTACT US
-    ═══════════════════════════════════════════════════════════════════ */
-    .contact {
-      background: var(--sm-cream);
-      padding: 96px 0;
+    /* ═══ PRICING ══════════════════════════════════════════════════════ */
+    .pricing { background: var(--sm-navy); padding: 96px 0; text-align: center;
+      background-image:
+        radial-gradient(ellipse 70% 50% at 20% 20%, rgba(245,130,174,0.13) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 85% 75%, rgba(255,209,102,0.07) 0%, transparent 55%);
     }
-    .contact__inner {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 56px;
-      max-width: 960px;
-      margin: 0 auto;
+    .pricing h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--sm-cream); margin-bottom: 14px; letter-spacing: -0.02em; }
+    .pricing h2 em { font-family: var(--sm-font-serif); font-style: italic; font-weight: 400; color: var(--sm-pink); }
+    .pricing__sub { color: rgba(254,246,228,0.65); max-width: 540px; margin: 0 auto 16px; font-size: 1.02rem; }
+
+    .pricing__features-all {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 24px;
+      max-width: 720px; margin: 0 auto 56px;
     }
-    .contact__info h2 {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
-    }
-    .contact__info h2 em {
-      font-family: var(--sm-font-serif);
-      font-style: italic;
-      font-weight: 400;
-      color: var(--sm-pink);
-    }
-    .contact__info p {
-      color: var(--sm-text-soft);
-      font-size: 1rem;
-      line-height: 1.75;
-      margin-bottom: 32px;
-    }
-    .contact__channels {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .contact-channel {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      background: var(--sm-cream-2);
-      border: 1px solid var(--sm-line);
-      border-radius: var(--sm-r-md);
-      padding: 16px 20px;
-    }
-    .contact-channel__icon { font-size: 1.6rem; flex-shrink: 0; }
-    .contact-channel__label {
-      font-family: var(--sm-font-display);
-      font-size: 0.76rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--sm-text-soft);
-      margin-bottom: 2px;
-    }
-    .contact-channel__value {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--sm-navy);
+    .pricing__feature-pill {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(254,246,228,0.15);
+      border-radius: var(--sm-r-pill); padding: 6px 16px;
+      font-family: var(--sm-font-display); font-size: 0.82rem; font-weight: 600;
+      color: rgba(254,246,228,0.82); letter-spacing: 0.02em;
     }
 
-    /* Form */
+    .pricing__cards { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 980px; margin: 0 auto 56px; }
+    .price-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(254,246,228,0.12);
+      border-radius: var(--sm-r-lg); padding: 36px 28px; text-align: left; position: relative;
+      transition: transform var(--sm-transition), background var(--sm-transition), box-shadow var(--sm-transition);
+    }
+    .price-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.10); box-shadow: 0 16px 48px rgba(0,0,0,0.25); }
+    .price-card--featured {
+      background: var(--sm-pink); border-color: var(--sm-pink);
+      box-shadow: 0 8px 36px rgba(245,130,174,0.40);
+    }
+    .price-card--featured:hover { background: #e86fa0; box-shadow: 0 16px 52px rgba(245,130,174,0.50); }
+
+    .price-card__badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--sm-butter); color: var(--sm-navy);
+      font-family: var(--sm-font-display); font-size: 0.72rem; font-weight: 800;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      border-radius: var(--sm-r-pill); padding: 5px 16px;
+      white-space: nowrap;
+    }
+    .price-card__tier {
+      font-family: var(--sm-font-display); font-size: 0.74rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(254,246,228,0.5); margin-bottom: 10px;
+    }
+    .price-card--featured .price-card__tier { color: rgba(255,255,255,0.65); }
+    .price-card__name {
+      font-family: var(--sm-font-display); font-size: 1.25rem; font-weight: 800;
+      color: var(--sm-cream); margin-bottom: 16px; line-height: 1.2;
+    }
+    .price-card__price {
+      margin-bottom: 8px; display: flex; align-items: flex-end; gap: 6px;
+    }
+    .price-card__amount {
+      font-family: var(--sm-font-display); font-size: 2.4rem; font-weight: 800;
+      color: var(--sm-cream); line-height: 1;
+    }
+    .price-card__amount--free { color: var(--sm-mint); }
+    .price-card--featured .price-card__amount { color: #fff; }
+    .price-card__period {
+      font-size: 0.85rem; color: rgba(254,246,228,0.55); padding-bottom: 4px;
+    }
+    .price-card--featured .price-card__period { color: rgba(255,255,255,0.65); }
+    .price-card__model {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.1); border-radius: var(--sm-r-pill);
+      padding: 4px 12px; margin-bottom: 24px;
+      font-family: var(--sm-font-display); font-size: 0.76rem; font-weight: 700;
+      color: rgba(254,246,228,0.75); letter-spacing: 0.03em;
+    }
+    .price-card--featured .price-card__model { background: rgba(255,255,255,0.2); color: #fff; }
+    .price-card__divider { border: none; border-top: 1px solid rgba(254,246,228,0.1); margin: 0 0 20px; }
+    .price-card--featured .price-card__divider { border-color: rgba(255,255,255,0.2); }
+    .price-card__perks { display: flex; flex-direction: column; gap: 10px; }
+    .price-card__perk {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.88rem; color: rgba(254,246,228,0.78); line-height: 1.5;
+    }
+    .price-card--featured .price-card__perk { color: rgba(255,255,255,0.9); }
+    .price-card__perk-icon { flex-shrink: 0; font-size: 0.95rem; margin-top: 1px; }
+
+    @media (min-width: 540px) { .pricing__cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .pricing__cards { grid-template-columns: repeat(4, 1fr); } }
+
+    /* ─── Claude badge ──────────────────────────────────────────────── */
+    .claude-badge {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: 10px 20px; max-width: 700px; margin: 0 auto;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(254,246,228,0.14);
+      border-radius: var(--sm-r-lg); padding: 24px 28px;
+    }
+    .claude-badge__text {
+      font-family: var(--sm-font-display); font-size: 0.88rem; font-weight: 600;
+      color: rgba(254,246,228,0.65); text-align: center; line-height: 1.6;
+    }
+    .claude-badge__text strong { color: var(--sm-cream); }
+    .claude-badge__models { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .claude-badge__model-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(254,246,228,0.15);
+      border-radius: var(--sm-r-pill); padding: 5px 13px;
+      font-family: var(--sm-font-display); font-size: 0.78rem; font-weight: 700;
+      color: var(--sm-cream); letter-spacing: 0.03em;
+    }
+
+    /* ═══ CONTACT ═══════════════════════════════════════════════════════ */
+    .contact { background: var(--sm-cream); padding: 96px 0; }
+    .contact__inner { display: grid; grid-template-columns: 1fr; gap: 56px; max-width: 960px; margin: 0 auto; }
+    .contact__info h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 16px; letter-spacing: -0.02em; }
+    .contact__info h2 em { font-family: var(--sm-font-serif); font-style: italic; font-weight: 400; color: var(--sm-pink); }
+    .contact__info p { color: var(--sm-text-soft); font-size: 1rem; line-height: 1.75; margin-bottom: 32px; }
+    .contact__channels { display: flex; flex-direction: column; gap: 14px; }
+    .contact-channel {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--sm-cream-2); border: 1px solid var(--sm-line); border-radius: var(--sm-r-md); padding: 16px 20px;
+    }
+    .contact-channel__icon { font-size: 1.6rem; flex-shrink: 0; }
+    .contact-channel__label { font-family: var(--sm-font-display); font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sm-text-soft); margin-bottom: 2px; }
+    .contact-channel__value { font-weight: 600; font-size: 0.95rem; color: var(--sm-navy); }
+
     .contact__form-wrap {
-      background: var(--sm-cream-2);
-      border: 1px solid var(--sm-line);
-      border-radius: var(--sm-r-lg);
-      padding: 40px 36px;
-      box-shadow: var(--sm-shadow-sm);
+      background: var(--sm-cream-2); border: 1px solid var(--sm-line); border-radius: var(--sm-r-lg); padding: 40px 36px; box-shadow: var(--sm-shadow-sm);
     }
-    .contact__form-wrap h3 {
-      font-family: var(--sm-font-display);
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--sm-navy);
-      margin-bottom: 24px;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .form-group label {
-      font-family: var(--sm-font-display);
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--sm-navy);
-      letter-spacing: 0.03em;
-    }
+    .contact__form-wrap h3 { font-family: var(--sm-font-display); font-size: 1.3rem; font-weight: 700; color: var(--sm-navy); margin-bottom: 24px; }
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-family: var(--sm-font-display); font-size: 0.82rem; font-weight: 700; color: var(--sm-navy); letter-spacing: 0.03em; }
     .form-group input,
     .form-group select,
     .form-group textarea {
-      font-family: var(--sm-font-body);
-      font-size: 0.95rem;
-      color: var(--sm-navy);
-      background: var(--sm-cream);
-      border: 1.5px solid var(--sm-line);
-      border-radius: var(--sm-r-md);
-      padding: 12px 16px;
-      outline: none;
+      font-family: var(--sm-font-body); font-size: 0.95rem; color: var(--sm-navy);
+      background: var(--sm-cream); border: 1.5px solid var(--sm-line); border-radius: var(--sm-r-md);
+      padding: 12px 16px; outline: none; width: 100%; resize: vertical;
       transition: border-color var(--sm-transition), box-shadow var(--sm-transition);
-      width: 100%;
-      resize: vertical;
     }
     .form-group input:focus,
     .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--sm-pink);
-      box-shadow: 0 0 0 3px rgba(245,130,174,0.15);
-    }
+    .form-group textarea:focus { border-color: var(--sm-pink); box-shadow: 0 0 0 3px rgba(245,130,174,0.15); }
     .form-group textarea { min-height: 120px; }
-
-    .form-submit {
-      margin-top: 8px;
-    }
+    .form-submit { margin-top: 8px; }
     .form-submit .btn { width: 100%; justify-content: center; }
 
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 32px 24px;
-    }
+    .form-success { display: none; text-align: center; padding: 32px 24px; }
     .form-success__icon { font-size: 3rem; margin-bottom: 14px; }
-    .form-success h4 {
-      font-family: var(--sm-font-display);
-      font-size: 1.2rem;
-      color: var(--sm-navy);
-      margin-bottom: 8px;
-    }
+    .form-success h4 { font-family: var(--sm-font-display); font-size: 1.2rem; color: var(--sm-navy); margin-bottom: 8px; }
     .form-success p { font-size: 0.93rem; color: var(--sm-text-soft); }
 
     @media (min-width: 640px) { .form-row { grid-template-columns: 1fr 1fr; } }
     @media (min-width: 900px) { .contact__inner { grid-template-columns: 1fr 1fr; } }
 
-    /* ═══════════════════════════════════════════════════════════════════
-       FOOTER
-    ═══════════════════════════════════════════════════════════════════ */
-    .footer {
-      background: var(--sm-navy);
-      color: rgba(254,246,228,0.6);
-      padding: 64px 0 36px;
-    }
-    .footer__inner {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-      margin-bottom: 48px;
-    }
+    /* ═══ FOOTER ════════════════════════════════════════════════════════ */
+    .footer { background: var(--sm-navy); color: rgba(254,246,228,0.6); padding: 64px 0 36px; }
+    .footer__inner { display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px; }
     .footer__logo { margin-bottom: 12px; }
     .footer__logo svg { height: 34px; width: auto; }
-    .footer__tagline {
-      font-size: 0.85rem;
-      color: rgba(254,246,228,0.45);
-      line-height: 1.65;
-    }
-    .footer__col-title {
-      font-family: var(--sm-font-display);
-      font-size: 0.76rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: rgba(254,246,228,0.35);
-      margin-bottom: 14px;
-    }
-    .footer__links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 20px;
-    }
-    .footer__links a {
-      font-size: 0.88rem;
-      color: rgba(254,246,228,0.55);
-      transition: color var(--sm-transition);
-    }
+    .footer__tagline { font-size: 0.85rem; color: rgba(254,246,228,0.45); line-height: 1.65; }
+    .footer__col-title { font-family: var(--sm-font-display); font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(254,246,228,0.35); margin-bottom: 14px; }
+    .footer__links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+    .footer__links a { font-size: 0.88rem; color: rgba(254,246,228,0.55); transition: color var(--sm-transition); }
     .footer__links a:hover { color: var(--sm-pink); }
-    .footer__legal {
-      font-size: 0.78rem;
-      color: rgba(254,246,228,0.32);
-      line-height: 1.65;
-    }
-    .footer__divider {
-      border: none;
-      border-top: 1px solid rgba(254,246,228,0.08);
-      margin: 0 0 24px;
-    }
-    .footer__bottom {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      font-size: 0.78rem;
-      color: rgba(254,246,228,0.3);
-    }
+    .footer__legal { font-size: 0.78rem; color: rgba(254,246,228,0.32); line-height: 1.65; }
+    .footer__divider { border: none; border-top: 1px solid rgba(254,246,228,0.08); margin: 0 0 24px; }
+    .footer__bottom { display: flex; flex-direction: column; gap: 8px; font-size: 0.78rem; color: rgba(254,246,228,0.3); }
 
     @media (min-width: 720px) {
       .footer__inner { grid-template-columns: 2fr 1fr 1.5fr; }
@@ -925,53 +552,34 @@
     }
 
     /* ─── Animations ────────────────────────────────────────────────── */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
     .anim { animation: fadeInUp 0.65s ease both; }
     .anim-d1 { animation-delay: 0.1s; }
     .anim-d2 { animation-delay: 0.22s; }
     .anim-d3 { animation-delay: 0.36s; }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 0.58s ease, transform 0.58s ease;
-    }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.58s ease, transform 0.58s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ─── Scroll to Top ─────────────────────────────────────────────── */
     .scroll-top {
-      position: fixed;
-      bottom: 28px; right: 22px;
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      background: var(--sm-pink);
-      color: #fff;
-      font-size: 1.1rem;
-      border: none;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
+      position: fixed; bottom: 28px; right: 22px;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--sm-pink); color: #fff; font-size: 1.1rem;
+      border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
       box-shadow: 0 4px 16px rgba(245,130,174,0.42);
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.3s, transform 0.3s;
-      z-index: 900;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.3s; z-index: 900;
     }
     .scroll-top.visible { opacity: 1; pointer-events: all; }
     .scroll-top:hover { transform: translateY(-2px); }
-
   </style>
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════ NAVIGATION -->
+  <!-- NAV -->
   <header class="nav" id="navbar" role="banner">
     <div class="container">
       <div class="nav__inner">
-
         <a href="#" class="nav__logo" aria-label="Study Mate SA home">
-          <!-- Primary lockup logo (navy on cream) -->
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 140" role="img" aria-label="Study Mate SA logo">
             <g transform="translate(0,0) scale(0.6)">
               <path d="M 38 6 L 150 6 L 194 50 L 194 156 Q 194 186 164 186 L 70 186 L 34 214 L 50 186 L 36 186 Q 6 186 6 156 L 6 36 Q 6 6 36 6 Z" fill="#001858"/>
@@ -983,17 +591,15 @@
             <text x="528" y="92" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-weight="400" font-size="60" fill="#F582AE">.sa</text>
           </svg>
         </a>
-
         <nav class="nav__links" aria-label="Main navigation">
           <a href="#about">Who We Are</a>
           <a href="#how-it-works">How It Works</a>
           <a href="#why-ai">Why AI-Tutoring</a>
           <a href="#subjects">Subjects</a>
+          <a href="#pricing">Pricing</a>
           <a href="#contact">Contact</a>
         </nav>
-
-        <a href="#contact" class="btn btn-primary" style="padding: 10px 22px; font-size: 0.86rem; flex-shrink:0;">Get in Touch</a>
-
+        <a href="#contact" class="btn btn-primary" style="padding:10px 22px;font-size:0.86rem;flex-shrink:0;">Get in Touch</a>
         <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -1004,56 +610,38 @@
       <a href="#how-it-works" onclick="closeMobile()">How It Works</a>
       <a href="#why-ai"       onclick="closeMobile()">Why AI-Tutoring</a>
       <a href="#subjects"     onclick="closeMobile()">Subjects</a>
+      <a href="#pricing"      onclick="closeMobile()">Pricing</a>
       <a href="#contact"      onclick="closeMobile()">Contact</a>
     </nav>
   </header>
 
   <main>
 
-    <!-- ═══════════════════════════════════════ HERO -->
+    <!-- HERO -->
     <section class="hero" aria-label="Hero">
       <div class="container">
-
-        <div class="hero__pill anim">
-          📱 Available on WhatsApp — no app download needed
-        </div>
-
-        <h1 class="anim anim-d1">
-          Your <em>24/7 AI Tutor</em><br>Built for South Africa
-        </h1>
-
+        <div class="hero__pill anim">📱 Available on WhatsApp — no app download needed</div>
+        <h1 class="anim anim-d1">Your <em>24/7 AI Tutor</em><br>Built for South Africa</h1>
         <p class="hero__sub anim anim-d2">
-          CAPS-aligned tutoring for Grade 10, 11 and 12 learners — whenever you need it, wherever you are, at a fraction of the cost of a private tutor.
+          CAPS-aligned tutoring for Grade 12 learners — whenever you need it, wherever you are, at a fraction of the cost of a private tutor.
         </p>
-
         <div class="hero__ctas anim anim-d3">
-          <a href="#about" class="btn btn-outline-cream btn-lg">
-            Learn More ↓
-          </a>
+          <a href="#about" class="btn btn-outline-cream btn-lg">Learn More ↓</a>
         </div>
-
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════ WHO WE ARE -->
+    <!-- WHO WE ARE -->
     <section class="about" id="about" aria-label="Who We Are">
       <div class="container">
         <div class="about__inner">
-
           <div class="about__copy reveal">
             <div class="chip">Who We Are</div>
             <h2>Levelling the playing field for <span>every learner</span></h2>
-            <p>
-              Study Mate SA was built on a simple belief: every South African learner deserves access to high-quality academic support — regardless of their postcode or their parents' income.
-            </p>
-            <p>
-              We combine the South African CAPS curriculum with cutting-edge AI to create a tutor that is always patient, always available, and always CAPS-aligned. Whether it's 10 PM before a maths paper or a quiet Sunday revision session, Study Mate SA is there.
-            </p>
-            <p>
-              We're a proudly South African product, built for the realities of our learners — including load shedding, limited data, and limited access to professional tutors.
-            </p>
+            <p>Study Mate SA was built on a simple belief: every South African learner deserves access to high-quality academic support — regardless of their postcode or their parents' income.</p>
+            <p>We combine the South African CAPS curriculum with cutting-edge AI to create a tutor that is always patient, always available, and always CAPS-aligned. Whether it's 10 PM before a maths paper or a quiet Sunday revision session, Study Mate SA is there.</p>
+            <p>We're a proudly South African product, built for the realities of our learners — including load shedding, limited data, and limited access to professional tutors.</p>
           </div>
-
           <div class="about__cards reveal">
             <div class="value-card">
               <div class="value-card__icon">🎓</div>
@@ -1080,22 +668,20 @@
               <div class="value-card__icon">❤️</div>
               <div>
                 <div class="value-card__title">Accessible to All</div>
-                <p class="value-card__text">R99/month — less than one hour with a private tutor. A free tier is always available so no learner is ever left without support.</p>
+                <p class="value-card__text">A free tier is always available so no learner is ever left without support. Upgrade to unlock more questions and our most powerful AI models.</p>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════ HOW IT WORKS -->
+    <!-- HOW IT WORKS -->
     <section class="hiw" id="how-it-works" aria-label="How It Works">
       <div class="container">
         <div class="chip chip--navy reveal">How It Works</div>
         <h2 class="reveal">Three steps to getting unstuck</h2>
         <p class="hiw__sub reveal">No downloads. No sign-ups. No waiting. Just open WhatsApp and ask.</p>
-
         <div class="hiw__steps">
           <div class="step-card reveal">
             <div class="step-card__num">1</div>
@@ -1116,7 +702,6 @@
             <p class="step-card__text">Request practice questions, essay feedback, or a personalised study plan. Track your progress and share weekly summaries with your parents — all in WhatsApp.</p>
           </div>
         </div>
-
         <!-- WhatsApp Mock -->
         <div class="wa-mock reveal" aria-label="Example WhatsApp conversation with Study Mate SA">
           <div class="wa-mock__header">
@@ -1149,20 +734,17 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════ WHY AI-TUTORING -->
+    <!-- WHY AI-TUTORING -->
     <section class="why" id="why-ai" aria-label="Why AI-Tutoring">
       <div class="container">
-
         <div class="why__head reveal">
           <div class="chip">Why AI-Tutoring</div>
           <h2>The <em>perfect complement</em> to school<br>and your private tutor</h2>
           <p>Study Mate SA isn't here to replace your teacher or tutor — it's here to make sure you never get stuck between sessions.</p>
         </div>
-
         <div class="why__grid">
           <div class="why-card reveal">
             <div class="why-card__icon">🌙</div>
@@ -1187,7 +769,7 @@
           <div class="why-card reveal">
             <div class="why-card__icon">💸</div>
             <div class="why-card__title">A fraction of the cost</div>
-            <p class="why-card__text">Private tutoring in South Africa costs R180–R500 per hour. One session a week adds up to over R2 500 a month. Study Mate SA provides unlimited support for R99/month — less than a single hour.</p>
+            <p class="why-card__text">Private tutoring in South Africa costs R180–R500 per hour. Study Mate SA starts free, and our top plan is less than a single hour with a tutor — for 60 days of unlimited support.</p>
           </div>
           <div class="why-card reveal">
             <div class="why-card__icon">📊</div>
@@ -1195,85 +777,186 @@
             <p class="why-card__text">Unlike a single tutor session that ends and is forgotten, Study Mate SA tracks every interaction. Learners and parents receive weekly reports showing exactly what's been covered and what needs work.</p>
           </div>
         </div>
-
-
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════ SUBJECTS -->
+    <!-- SUBJECTS -->
     <section class="subjects" id="subjects" aria-label="Subjects Available">
       <div class="container">
         <div class="chip reveal">Subjects Available</div>
         <h2 class="reveal">Covering all your core subjects</h2>
-        <p class="subjects__sub reveal">
-          Full CAPS coverage for Grade 10, 11 and 12 — grounded in DBE curriculum documents and NSC examination guidelines.
-        </p>
-
+        <p class="subjects__sub reveal">Full CAPS coverage for Grade 12 — grounded in DBE curriculum documents and NSC examination guidelines.</p>
         <div class="subjects__grid">
-
           <div class="subject-card reveal">
             <div class="subject-card__icon">📐</div>
             <div class="subject-card__name">Mathematics</div>
-            <div class="subject-card__grades">Grades 10 – 12</div>
-            <p class="subject-card__desc">Algebra, functions, trigonometry, calculus, statistics, probability, Euclidean geometry — all topics, all grades, all exam formats.</p>
+            <div class="subject-card__grades">Grade 12</div>
+            <p class="subject-card__desc">Algebra, functions, trigonometry, calculus, statistics, probability, Euclidean geometry — all topics, all exam formats.</p>
           </div>
-
           <div class="subject-card reveal">
             <div class="subject-card__icon">⚗️</div>
             <div class="subject-card__name">Physical Sciences</div>
-            <div class="subject-card__grades">Grades 10 – 12</div>
+            <div class="subject-card__grades">Grade 12</div>
             <p class="subject-card__desc">Mechanics, waves, electricity, magnetism, chemical bonding, reactions, stoichiometry — with step-by-step calculation support.</p>
           </div>
-
           <div class="subject-card reveal">
             <div class="subject-card__icon">🌿</div>
             <div class="subject-card__name">Life Sciences</div>
-            <div class="subject-card__grades">Grades 10 – 12</div>
+            <div class="subject-card__grades">Grade 12</div>
             <p class="subject-card__desc">Cells, genetics, evolution, ecology, human biology — with diagram explanations and essay structure frameworks for long questions.</p>
           </div>
-
           <div class="subject-card reveal">
             <div class="subject-card__icon">📊</div>
             <div class="subject-card__name">Accounting</div>
-            <div class="subject-card__grades">Grades 10 – 12</div>
-            <p class="subject-card__desc">Financial statements, ledgers, reconciliations, ethics, analysis and interpretation — with worked examples aligned to NSC marking standards.</p>
+            <div class="subject-card__grades">Grade 12</div>
+            <p class="subject-card__desc">Financial statements, ledgers, reconciliations, ethics, analysis and interpretation — aligned to NSC marking standards.</p>
           </div>
-
           <div class="subject-card reveal">
             <div class="subject-card__icon">📖</div>
             <div class="subject-card__name">English Home Language</div>
-            <div class="subject-card__grades">Grades 10 – 12</div>
-            <p class="subject-card__desc">Essay writing, comprehension, literature (poetry, drama, novel), transactional texts — with DBE rubric-aligned essay feedback.</p>
+            <div class="subject-card__grades">Grade 12</div>
+            <p class="subject-card__desc">Essay writing, comprehension, literature, transactional texts — with DBE rubric-aligned essay feedback.</p>
+          </div>
+          <div class="subject-card reveal">
+            <div class="subject-card__icon">🗺️</div>
+            <div class="subject-card__name">Geography & History</div>
+            <div class="subject-card__grades">Grade 12</div>
+            <p class="subject-card__desc">Map work, geomorphology, climate, development geography — plus History source analysis, essays, and exam technique support.</p>
+          </div>
+          <div class="subject-card reveal">
+            <div class="subject-card__icon">💼</div>
+            <div class="subject-card__name">Business Studies & Economics</div>
+            <div class="subject-card__grades">Grade 12</div>
+            <p class="subject-card__desc">Business environments, entrepreneurship, macro/microeconomics — with essay frameworks and case study practice.</p>
+          </div>
+          <div class="subject-card reveal">
+            <div class="subject-card__icon">📏</div>
+            <div class="subject-card__name">Mathematical Literacy</div>
+            <div class="subject-card__grades">Grade 12</div>
+            <p class="subject-card__desc">Finance, measurement, data handling, probability — practical maths for real-world applications and NSC exam success.</p>
+          </div>
+        </div>
+        <p class="subjects__note reveal">✅ All content is aligned to the <strong>CAPS curriculum</strong> as set by the Department of Basic Education and the <strong>NSC examination guidelines</strong>.</p>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing" aria-label="Pricing">
+      <div class="container">
+        <div class="chip chip--navy reveal">Pricing</div>
+        <h2 class="reveal">Simple, <em>honest</em> pricing</h2>
+        <p class="pricing__sub reveal">Start free. Upgrade when you're ready. All plans include past papers, memos and image scanning.</p>
+
+        <!-- Features available to all tiers -->
+        <div class="pricing__features-all reveal">
+          <span class="pricing__feature-pill">✅ Past papers & memos (all subjects)</span>
+          <span class="pricing__feature-pill">📸 Photo a question (image scanning)</span>
+          <span class="pricing__feature-pill">📚 CAPS-aligned answers</span>
+          <span class="pricing__feature-pill">💬 WhatsApp — no app needed</span>
+        </div>
+
+        <div class="pricing__cards">
+
+          <!-- Free -->
+          <div class="price-card reveal">
+            <div class="price-card__tier">Always Free</div>
+            <div class="price-card__name">Free</div>
+            <div class="price-card__price">
+              <span class="price-card__amount price-card__amount--free">R0</span>
+              <span class="price-card__period">/ forever</span>
+            </div>
+            <div class="price-card__model">🤖 Claude Haiku</div>
+            <hr class="price-card__divider"/>
+            <div class="price-card__perks">
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>5 questions per day</div>
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Past papers & memos</div>
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Image scanning</div>
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Fast, capable AI tutor</div>
+            </div>
           </div>
 
-          <div class="subject-card reveal" style="border-style: dashed; border-color: rgba(245,130,174,0.4);">
-            <div class="subject-card__icon">✨</div>
-            <div class="subject-card__name">More Coming Soon</div>
-            <div class="subject-card__grades">In Development</div>
-            <p class="subject-card__desc">Mathematical Literacy, Business Studies, Geography and History are on the roadmap. <a href="#contact" style="color: var(--sm-pink); font-weight:700;">Let us know</a> which subject you need most.</p>
+          <!-- Day Pass -->
+          <div class="price-card reveal">
+            <div class="price-card__tier">Day Pass</div>
+            <div class="price-card__name">Day Pass</div>
+            <div class="price-card__price">
+              <span class="price-card__amount">R8</span>
+              <span class="price-card__period">/ 24 hours</span>
+            </div>
+            <div class="price-card__model">🤖 Haiku + Sonnet</div>
+            <hr class="price-card__divider"/>
+            <div class="price-card__perks">
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Unlimited questions for 24 hrs</div>
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Upgraded to Claude Sonnet</div>
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Deeper explanations</div>
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Perfect before a test or exam</div>
+            </div>
+          </div>
+
+          <!-- Matric Month — FEATURED -->
+          <div class="price-card price-card--featured reveal">
+            <div class="price-card__badge">⭐ Most Popular</div>
+            <div class="price-card__tier">Matric Month</div>
+            <div class="price-card__name">Matric Month</div>
+            <div class="price-card__price">
+              <span class="price-card__amount">R49</span>
+              <span class="price-card__period">/ 30 days</span>
+            </div>
+            <div class="price-card__model">🤖 Haiku · Sonnet · Opus</div>
+            <hr class="price-card__divider"/>
+            <div class="price-card__perks">
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Unlimited questions</div>
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>All three Claude models</div>
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Complex multi-step problems</div>
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Essay feedback & study plans</div>
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Less than one hour of tutoring</div>
+            </div>
+          </div>
+
+          <!-- Exam Season -->
+          <div class="price-card reveal">
+            <div class="price-card__tier">Exam Season</div>
+            <div class="price-card__name">Exam Season</div>
+            <div class="price-card__price">
+              <span class="price-card__amount">R79</span>
+              <span class="price-card__period">/ 60 days</span>
+            </div>
+            <div class="price-card__model">🤖 Haiku · Sonnet · Opus</div>
+            <hr class="price-card__divider"/>
+            <div class="price-card__perks">
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Everything in Matric Month</div>
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>60 full days of support</div>
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Trial + exam period covered</div>
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Best value for matric year</div>
+            </div>
           </div>
 
         </div>
 
-        <p class="subjects__note reveal">
-          ✅ All content is aligned to the <strong>CAPS curriculum</strong> as set by the Department of Basic Education and the <strong>NSC examination guidelines</strong>.
-        </p>
+        <!-- Claude AI Backbone Callout -->
+        <div class="claude-badge reveal">
+          <div class="claude-badge__text">
+            <strong>Powered by Anthropic's Claude</strong> — the same AI trusted by researchers, doctors, and engineers worldwide.<br>
+            Unlike competitors using open-source models, Study Mate SA runs on Claude — the world's leading AI for reasoning, explanation, and education.
+          </div>
+          <div class="claude-badge__models">
+            <span class="claude-badge__model-tag">⚡ Claude Haiku</span>
+            <span class="claude-badge__model-tag">🧠 Claude Sonnet</span>
+            <span class="claude-badge__model-tag">🏆 Claude Opus</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════ CONTACT US -->
+    <!-- CONTACT -->
     <section class="contact" id="contact" aria-label="Contact Us">
       <div class="container">
         <div class="contact__inner">
-
-          <!-- Info -->
           <div class="contact__info reveal">
             <div class="chip">Contact Us</div>
             <h2>Let's <em>talk</em></h2>
-            <p>
-              Whether you're a Grade 12 learner looking to get started, or a parent with questions — we'd love to hear from you.
-            </p>
-
+            <p>Whether you're a Grade 12 learner looking to get started, or a parent with questions — we'd love to hear from you.</p>
             <div class="contact__channels">
               <div class="contact-channel">
                 <div class="contact-channel__icon">💬</div>
@@ -1291,11 +974,8 @@
               </div>
             </div>
           </div>
-
-          <!-- Form -->
           <div class="contact__form-wrap reveal">
             <h3>Send us a message</h3>
-
             <form id="contactForm" novalidate>
               <div class="form-row">
                 <div class="form-group">
@@ -1307,7 +987,6 @@
                   <input type="email" id="f-email" name="email" placeholder="you@example.com" required />
                 </div>
               </div>
-
               <div class="form-row">
                 <div class="form-group">
                   <label for="f-phone">Phone / WhatsApp (optional)</label>
@@ -1317,51 +996,43 @@
                   <label for="f-type">I am a…</label>
                   <select id="f-type" name="type">
                     <option value="">Select one</option>
-                    <option value="learner">Learner</option>
+                    <option value="learner">Grade 12 Learner</option>
                     <option value="parent">Parent / Guardian</option>
                     <option value="teacher">Teacher / Educator</option>
-                    <option value="school">School Administrator</option>
                     <option value="other">Other</option>
                   </select>
                 </div>
               </div>
-
               <div class="form-group" style="margin-bottom:16px;">
                 <label for="f-subject">Subject</label>
-                <input type="text" id="f-subject" name="subject" placeholder="e.g. School licence enquiry" required />
+                <input type="text" id="f-subject" name="subject" placeholder="e.g. Question about pricing" required />
               </div>
-
               <div class="form-group" style="margin-bottom:20px;">
                 <label for="f-message">Message</label>
                 <textarea id="f-message" name="message" placeholder="Tell us how we can help…" required></textarea>
               </div>
-
               <div class="form-submit">
                 <button type="submit" class="btn btn-primary btn-lg">Send Message →</button>
               </div>
             </form>
-
             <div class="form-success" id="formSuccess">
               <div class="form-success__icon">🎉</div>
               <h4>Message sent!</h4>
               <p>Thanks for reaching out. We'll get back to you within one business day.</p>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ═══════════════════════════════════════ FOOTER -->
+  <!-- FOOTER -->
   <footer class="footer" aria-label="Footer">
     <div class="container">
       <div class="footer__inner">
-
         <div>
-          <div class="footer__logo" aria-label="Study Mate SA">
-            <!-- Reversed lockup: cream on navy -->
+          <div class="footer__logo">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 140" role="img" aria-label="Study Mate SA logo">
               <g transform="translate(0,0) scale(0.6)">
                 <path d="M 38 6 L 150 6 L 194 50 L 194 156 Q 194 186 164 186 L 70 186 L 34 214 L 50 186 L 36 186 Q 6 186 6 156 L 6 36 Q 6 6 36 6 Z" fill="#FEF6E4"/>
@@ -1373,12 +1044,8 @@
               <text x="528" y="92" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-weight="400" font-size="60" fill="#F582AE">.sa</text>
             </svg>
           </div>
-          <p class="footer__tagline">
-            Your 24/7 AI Matric Tutor — on WhatsApp.<br>
-            CAPS-aligned. Affordable. Always available.
-          </p>
+          <p class="footer__tagline">Your 24/7 AI Matric Tutor — on WhatsApp.<br>CAPS-aligned. Affordable. Always available.</p>
         </div>
-
         <div>
           <div class="footer__col-title">Navigation</div>
           <nav class="footer__links" aria-label="Footer navigation">
@@ -1386,10 +1053,10 @@
             <a href="#how-it-works">How It Works</a>
             <a href="#why-ai">Why AI-Tutoring</a>
             <a href="#subjects">Subjects</a>
+            <a href="#pricing">Pricing</a>
             <a href="#contact">Contact</a>
           </nav>
         </div>
-
         <div>
           <div class="footer__col-title">Legal</div>
           <div class="footer__legal">
@@ -1400,11 +1067,8 @@
             <p>Registered in the Republic of South Africa.<br>POPIA compliant.</p>
           </div>
         </div>
-
       </div>
-
       <hr class="footer__divider" />
-
       <div class="footer__bottom">
         <p>Made with ❤️ for South African learners — from Grade 10 to Matric</p>
         <p>📧 hello@studymatesa.co.za</p>
@@ -1412,33 +1076,25 @@
     </div>
   </footer>
 
-  <!-- Scroll to Top -->
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
 
   <script>
-    /* ─── Sticky Nav ──────────────────────────────────────────── */
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 30);
-    }, { passive: true });
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 30); }, { passive: true });
 
-    /* ─── Mobile Menu ─────────────────────────────────────────── */
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-
     hamburger.addEventListener('click', () => {
       const isOpen = mobileMenu.classList.toggle('open');
       hamburger.classList.toggle('open', isOpen);
       hamburger.setAttribute('aria-expanded', isOpen);
     });
-
     function closeMobile() {
       mobileMenu.classList.remove('open');
       hamburger.classList.remove('open');
       hamburger.setAttribute('aria-expanded', 'false');
     }
 
-    /* ─── Scroll Reveal ───────────────────────────────────────── */
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -1450,48 +1106,36 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(el => observer.observe(el));
 
-    /* ─── Scroll to Top ───────────────────────────────────────── */
     const scrollTopBtn = document.getElementById('scrollTop');
-    window.addEventListener('scroll', () => {
-      scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
-    }, { passive: true });
+    window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('visible', window.scrollY > 500); }, { passive: true });
     scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    /* ─── Smooth Anchor Scroll ────────────────────────────────── */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+      anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
         if (href === '#' || href === '') return;
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          const offset = navbar.offsetHeight + 8;
-          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navbar.offsetHeight - 8, behavior: 'smooth' });
           closeMobile();
         }
       });
     });
 
-    /* ─── Contact Form ────────────────────────────────────────── */
     const form = document.getElementById('contactForm');
     const success = document.getElementById('formSuccess');
-
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
-      const required = form.querySelectorAll('[required]');
       let valid = true;
-
-      required.forEach(field => {
+      form.querySelectorAll('[required]').forEach(field => {
         if (!field.value.trim()) {
           valid = false;
           field.style.borderColor = '#FF7A6B';
           field.addEventListener('input', () => { field.style.borderColor = ''; }, { once: true });
         }
       });
-
       if (!valid) return;
-
-      // Simulate submission
       form.style.display = 'none';
       success.style.display = 'block';
     });
