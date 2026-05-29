@@ -546,6 +546,8 @@
     .contact-channel__icon { font-size: 1.6rem; flex-shrink: 0; }
     .contact-channel__label { font-family: var(--sm-font-display); font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sm-text-soft); margin-bottom: 2px; }
     .contact-channel__value { font-weight: 600; font-size: 0.95rem; color: var(--sm-navy); }
+    .contact-channel--link { cursor: pointer; transition: transform var(--sm-transition), border-color var(--sm-transition), box-shadow var(--sm-transition); }
+    .contact-channel--link:hover { transform: translateY(-2px); border-color: var(--sm-pink); box-shadow: var(--sm-shadow-md); }
 
     .contact__form-wrap {
       background: var(--sm-cream-2); border: 1px solid var(--sm-line); border-radius: var(--sm-r-lg); padding: 40px 36px; box-shadow: var(--sm-shadow-sm);
@@ -1034,25 +1036,32 @@
             <h2>Let's <em>talk</em></h2>
             <p>Whether you're a Grade 12 learner looking to get started, a Grade 10 or 11 learner keen for early access, or a parent with questions — we'd love to hear from you.</p>
             <div class="contact__channels">
-              <div class="contact-channel">
+              <a class="contact-channel contact-channel--link"
+                 href="https://wa.me/27689388432?text=Hi%20Study%20Mate%20SA%2C%20I%27d%20like%20to%20get%20started%20%F0%9F%91%8B"
+                 target="_blank" rel="noopener" aria-label="Chat with Study Mate SA on WhatsApp">
                 <div class="contact-channel__icon">💬</div>
                 <div>
                   <div class="contact-channel__label">WhatsApp</div>
-                  <div class="contact-channel__value">+27 XX XXX XXXX</div>
+                  <div class="contact-channel__value">+27 68 938 8432</div>
                 </div>
-              </div>
-              <div class="contact-channel">
+              </a>
+              <a class="contact-channel contact-channel--link" href="mailto:hello@studymatesa.co.za">
                 <div class="contact-channel__icon">📧</div>
                 <div>
                   <div class="contact-channel__label">General enquiries</div>
                   <div class="contact-channel__value">hello@studymatesa.co.za</div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
           <div class="contact__form-wrap reveal">
             <h3>Send us a message</h3>
             <form id="contactForm" novalidate>
+              <!-- Web3Forms access key (public, tied to hello@studymatesa.co.za) -->
+              <input type="hidden" name="access_key" value="b60ef590-408c-46e4-b397-6c72d814a9d7" />
+              <input type="hidden" name="from_name" value="Study Mate SA website" />
+              <!-- Honeypot spam trap — leave empty/hidden -->
+              <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" />
               <div class="form-row">
                 <div class="form-group">
                   <label for="f-name">Your Name</label>
@@ -1202,7 +1211,7 @@
 
     const form = document.getElementById('contactForm');
     const success = document.getElementById('formSuccess');
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
       let valid = true;
       form.querySelectorAll('[required]').forEach(field => {
@@ -1213,8 +1222,30 @@
         }
       });
       if (!valid) return;
-      form.style.display = 'none';
-      success.style.display = 'block';
+
+      const btn = form.querySelector('button[type="submit"]');
+      const originalLabel = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = 'Sending…';
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        const data = await res.json();
+        if (data.success) {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        } else {
+          throw new Error(data.message || 'Submission failed');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.innerHTML = originalLabel;
+        alert("Sorry — something went wrong sending your message. Please WhatsApp or email us directly and we'll get right back to you.");
+      }
     });
   </script>
 
