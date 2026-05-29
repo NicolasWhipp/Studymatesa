@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Study Mate SA — Your 24/7 AI Tutor on WhatsApp</title>
-  <meta name="description" content="CAPS-aligned AI tutoring on WhatsApp for Grade 12 learners. Always available, always affordable." />
+  <meta name="description" content="CAPS-aligned AI tutoring on WhatsApp for Grade 12 learners — Grade 10 & 11 coming soon. Powered by Anthropic's Claude. Always available, always affordable." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Nunito:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
@@ -251,8 +251,29 @@
       font-size: clamp(1rem, 2.5vw, 1.18rem);
       color: rgba(254,246,228,0.72);
       max-width: 580px;
-      margin: 0 auto 40px;
+      margin: 0 auto 22px;
       line-height: 1.72;
+    }
+    .hero__sub strong { color: var(--sm-cream); font-weight: 800; }
+    .hero__claude {
+      display: inline-flex; align-items: center; gap: 10px;
+      max-width: 640px; margin: 0 auto 38px;
+      background: rgba(245,130,174,0.12);
+      border: 1px solid rgba(245,130,174,0.32);
+      border-radius: var(--sm-r-md);
+      padding: 11px 20px;
+      font-family: var(--sm-font-display);
+      font-size: 0.9rem; font-weight: 600;
+      color: rgba(254,246,228,0.82); line-height: 1.5;
+    }
+    .hero__claude strong { color: var(--sm-pink); font-weight: 800; }
+    .hero__claude-spark { color: var(--sm-pink); font-size: 1.1rem; flex-shrink: 0; }
+    .hero__soon {
+      display: inline-block; margin: 0 auto 14px;
+      background: rgba(255,209,102,0.16); border: 1px solid rgba(255,209,102,0.4);
+      border-radius: var(--sm-r-pill); padding: 6px 16px;
+      font-family: var(--sm-font-display); font-size: 0.8rem; font-weight: 700;
+      color: var(--sm-butter); letter-spacing: 0.03em;
     }
     .hero__ctas {
       display: flex; flex-wrap: wrap; gap: 14px;
@@ -326,7 +347,7 @@
     .wa-mock__name { font-weight: 700; font-size: 0.97rem; }
     .wa-mock__status { font-size: 0.74rem; opacity: 0.75; margin-top: 1px; }
     .wa-mock__body { background: #ece5dd; padding: 14px 12px; display: flex; flex-direction: column; gap: 10px; min-height: 240px; }
-    .wa-bubble { max-width: 85%; border-radius: 12px; padding: 9px 13px; font-size: 0.86rem; line-height: 1.55; }
+    .wa-bubble { max-width: 85%; border-radius: 12px; padding: 9px 13px; font-size: 0.86rem; line-height: 1.55; color: #111b21; }
     .wa-bubble--student { background: #dcf8c6; align-self: flex-end; border-bottom-right-radius: 4px; }
     .wa-bubble--bot { background: #fff; align-self: flex-start; border-bottom-left-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.09); }
     .wa-bubble__time { font-size: 0.67rem; color: rgba(0,0,0,0.38); text-align: right; margin-top: 4px; }
@@ -356,10 +377,33 @@
     @media (min-width: 640px) { .why__grid { grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 900px) { .why__grid { grid-template-columns: repeat(3, 1fr); } }
 
+    /* ─── Three Claude models ───────────────────────────────────────── */
+    .models { max-width: 980px; margin: 68px auto 0; }
+    .models__head { text-align: center; margin-bottom: 38px; }
+    .models__head h3 { font-family: var(--sm-font-display); font-size: clamp(1.4rem, 3vw, 2rem); letter-spacing: -0.02em; margin-bottom: 12px; }
+    .models__head h3 em { font-family: var(--sm-font-serif); font-style: italic; font-weight: 400; color: var(--sm-pink); }
+    .models__head p { color: var(--sm-text-soft); max-width: 600px; margin: 0 auto; font-size: 1rem; line-height: 1.7; }
+    .models__grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+    .model-card {
+      background: var(--sm-navy); border-radius: var(--sm-r-lg); padding: 28px 26px; color: var(--sm-cream);
+      transition: transform var(--sm-transition), box-shadow var(--sm-transition);
+    }
+    .model-card:hover { transform: translateY(-4px); box-shadow: var(--sm-shadow-lg); }
+    .model-card__tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(254,246,228,0.18);
+      border-radius: var(--sm-r-pill); padding: 5px 14px; margin-bottom: 14px;
+      font-family: var(--sm-font-display); font-size: 0.82rem; font-weight: 700; color: var(--sm-cream); letter-spacing: 0.02em;
+    }
+    .model-card__role { font-family: var(--sm-font-display); font-size: 1.05rem; font-weight: 800; color: var(--sm-pink); margin-bottom: 8px; }
+    .model-card__text { font-size: 0.9rem; color: rgba(254,246,228,0.72); line-height: 1.65; }
+    @media (min-width: 760px) { .models__grid { grid-template-columns: repeat(3, 1fr); } }
+
     /* ═══ SUBJECTS ══════════════════════════════════════════════════════ */
     .subjects { background: var(--sm-pink-2); padding: 88px 0; text-align: center; }
     .subjects h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 14px; letter-spacing: -0.018em; }
-    .subjects__sub { color: var(--sm-text-soft); max-width: 540px; margin: 0 auto 52px; font-size: 1.02rem; }
+    .subjects__sub { color: var(--sm-text-soft); max-width: 560px; margin: 0 auto 52px; font-size: 1.02rem; }
+    .subjects__sub strong { color: var(--sm-pink); font-weight: 800; }
 
     .subjects__grid { display: grid; grid-template-columns: 1fr; gap: 18px; max-width: 900px; margin: 0 auto 36px; }
     .subject-card {
@@ -387,7 +431,8 @@
     }
     .pricing h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--sm-cream); margin-bottom: 14px; letter-spacing: -0.02em; }
     .pricing h2 em { font-family: var(--sm-font-serif); font-style: italic; font-weight: 400; color: var(--sm-pink); }
-    .pricing__sub { color: rgba(254,246,228,0.65); max-width: 540px; margin: 0 auto 16px; font-size: 1.02rem; }
+    .pricing__sub { color: rgba(254,246,228,0.65); max-width: 580px; margin: 0 auto 16px; font-size: 1.02rem; }
+    .pricing__sub strong { color: var(--sm-cream); font-weight: 800; }
 
     .pricing__features-all {
       display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 24px;
@@ -623,8 +668,13 @@
         <div class="hero__pill anim">📱 Available on WhatsApp — no app download needed</div>
         <h1 class="anim anim-d1">Your <em>24/7 AI Tutor</em><br>Built for South Africa</h1>
         <p class="hero__sub anim anim-d2">
-          CAPS-aligned tutoring for Grade 12 learners — whenever you need it, wherever you are, at a fraction of the cost of a private tutor.
+          CAPS-aligned tutoring for <strong>Grade 12 learners</strong> — whenever you need it, wherever you are, at a fraction of the cost of a private tutor.
         </p>
+        <div class="hero__soon anim anim-d2">🚀 Grade 10 &amp; 11 — coming soon</div>
+        <div class="hero__claude anim anim-d2" aria-label="Powered by Anthropic's Claude">
+          <span class="hero__claude-spark">✦</span>
+          <span>Powered by <strong>Anthropic's Claude</strong> — the world's leading AI for reasoning &amp; explanation</span>
+        </div>
         <div class="hero__ctas anim anim-d3">
           <a href="#about" class="btn btn-outline-cream btn-lg">Learn More ↓</a>
         </div>
@@ -777,6 +827,31 @@
             <p class="why-card__text">Unlike a single tutor session that ends and is forgotten, Study Mate SA tracks every interaction. Learners and parents receive weekly reports showing exactly what's been covered and what needs work.</p>
           </div>
         </div>
+
+        <!-- Three Claude models -->
+        <div class="models reveal">
+          <div class="models__head">
+            <h3>One tutor, <em>three minds</em> — every plan includes all three</h3>
+            <p>Study Mate SA runs on Anthropic's Claude and automatically chooses the right model for each question — so you always get the best balance of speed and depth, at no extra cost.</p>
+          </div>
+          <div class="models__grid">
+            <div class="model-card">
+              <div class="model-card__tag">⚡ Claude Haiku</div>
+              <div class="model-card__role">Fast &amp; responsive</div>
+              <p class="model-card__text">Instant answers for quick questions, definitions and rapid back-and-forth practice. Ideal for checking your understanding on the go and powering through revision.</p>
+            </div>
+            <div class="model-card">
+              <div class="model-card__tag">🧠 Claude Sonnet</div>
+              <div class="model-card__role">Balanced reasoning</div>
+              <p class="model-card__text">The everyday workhorse — multi-step problems, full worked solutions and richer explanations that handle the bulk of your homework and study sessions.</p>
+            </div>
+            <div class="model-card">
+              <div class="model-card__tag">🏆 Claude Opus</div>
+              <div class="model-card__role">Deepest reasoning</div>
+              <p class="model-card__text">Maximum depth for complex essays, critical analysis, multi-part exam questions and detailed, rubric-aligned feedback — for when the work really counts.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -785,7 +860,7 @@
       <div class="container">
         <div class="chip reveal">Subjects Available</div>
         <h2 class="reveal">Covering all your core subjects</h2>
-        <p class="subjects__sub reveal">Full CAPS coverage for Grade 12 — grounded in DBE curriculum documents and NSC examination guidelines.</p>
+        <p class="subjects__sub reveal">Full CAPS coverage for Grade 12 — grounded in DBE curriculum documents and NSC examination guidelines. <strong>Grade 10 &amp; 11 coming soon.</strong></p>
         <div class="subjects__grid">
           <div class="subject-card reveal">
             <div class="subject-card__icon">📐</div>
@@ -845,10 +920,11 @@
       <div class="container">
         <div class="chip chip--navy reveal">Pricing</div>
         <h2 class="reveal">Simple, <em>honest</em> pricing</h2>
-        <p class="pricing__sub reveal">Start free. Upgrade when you're ready. All plans include past papers, memos and image scanning.</p>
+        <p class="pricing__sub reveal">Start free. Upgrade when you're ready. <strong>Every plan includes all three Claude models</strong> — the only difference is how long your access lasts and how many questions you can ask.</p>
 
         <!-- Features available to all tiers -->
         <div class="pricing__features-all reveal">
+          <span class="pricing__feature-pill">🤖 All 3 Claude models (Haiku · Sonnet · Opus)</span>
           <span class="pricing__feature-pill">✅ Past papers & memos (all subjects)</span>
           <span class="pricing__feature-pill">📸 Photo a question (image scanning)</span>
           <span class="pricing__feature-pill">📚 CAPS-aligned answers</span>
@@ -865,13 +941,13 @@
               <span class="price-card__amount price-card__amount--free">R0</span>
               <span class="price-card__period">/ forever</span>
             </div>
-            <div class="price-card__model">🤖 Claude Haiku</div>
+            <div class="price-card__model">🤖 Haiku · Sonnet · Opus</div>
             <hr class="price-card__divider"/>
             <div class="price-card__perks">
-              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>5 questions per day</div>
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>10 messages per day</div>
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>All three Claude models</div>
               <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Past papers & memos</div>
               <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Image scanning</div>
-              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Fast, capable AI tutor</div>
             </div>
           </div>
 
@@ -883,12 +959,12 @@
               <span class="price-card__amount">R8</span>
               <span class="price-card__period">/ 24 hours</span>
             </div>
-            <div class="price-card__model">🤖 Haiku + Sonnet</div>
+            <div class="price-card__model">🤖 Haiku · Sonnet · Opus</div>
             <hr class="price-card__divider"/>
             <div class="price-card__perks">
               <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Unlimited questions for 24 hrs</div>
-              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Upgraded to Claude Sonnet</div>
-              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Deeper explanations</div>
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>All three Claude models</div>
+              <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Past papers, memos & image scanning</div>
               <div class="price-card__perk"><span class="price-card__perk-icon">✅</span>Perfect before a test or exam</div>
             </div>
           </div>
@@ -956,7 +1032,7 @@
           <div class="contact__info reveal">
             <div class="chip">Contact Us</div>
             <h2>Let's <em>talk</em></h2>
-            <p>Whether you're a Grade 12 learner looking to get started, or a parent with questions — we'd love to hear from you.</p>
+            <p>Whether you're a Grade 12 learner looking to get started, a Grade 10 or 11 learner keen for early access, or a parent with questions — we'd love to hear from you.</p>
             <div class="contact__channels">
               <div class="contact-channel">
                 <div class="contact-channel__icon">💬</div>
@@ -997,6 +1073,7 @@
                   <select id="f-type" name="type">
                     <option value="">Select one</option>
                     <option value="learner">Grade 12 Learner</option>
+                    <option value="learner-1011">Grade 10 / 11 Learner (early access)</option>
                     <option value="parent">Parent / Guardian</option>
                     <option value="teacher">Teacher / Educator</option>
                     <option value="other">Other</option>
@@ -1070,7 +1147,7 @@
       </div>
       <hr class="footer__divider" />
       <div class="footer__bottom">
-        <p>Made with ❤️ for South African learners — from Grade 10 to Matric</p>
+        <p>Made with ❤️ for South African Matric learners — Grade 10 &amp; 11 coming soon</p>
         <p>📧 hello@studymatesa.co.za</p>
       </div>
     </div>
