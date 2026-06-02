@@ -119,7 +119,7 @@
       padding: 0.4em 0.9em; border-radius: var(--r-pill);
     }
     .tag--pink { background: var(--pink-2); color: #8e2356; }
-    .tag--soon { background: color-mix(in oklab, var(--butter) 30%, transparent); color: #7a5800; border: 1px solid color-mix(in oklab, var(--butter) 55%, transparent); }
+    .tag--soon { background: color-mix(in oklab, var(--butter) 16%, transparent); color: var(--butter); border: 1px solid color-mix(in oklab, var(--butter) 60%, transparent); font-weight: 800; }
     .tag--ghost { background: color-mix(in oklab, var(--cream) 12%, transparent); color: var(--on-navy-70); border: 1px solid var(--line-navy); }
 
     /* buttons */
@@ -247,6 +247,9 @@
     .step__n::before { content: counter(step); }
     .step h3 { font-size: 1.2rem; margin-bottom: 0.3rem; }
     .step p { color: var(--ink-60); font-size: 0.96rem; }
+    .step__wa { display: inline-flex; align-items: center; gap: 0.45em; margin-top: 0.9rem; font-family: var(--font-display); font-weight: 800; font-size: 0.95rem; color: var(--navy); background: var(--pink-2); padding: 0.5em 0.95em; border-radius: var(--r-pill); transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease); }
+    .step__wa:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    @media (prefers-reduced-motion: reduce) { .step__wa:hover { transform: none; } }
     @media (min-width: 760px) {
       .steps { grid-template-columns: repeat(3, 1fr); }
       .step { grid-template-columns: 1fr; gap: 1rem; }
@@ -327,6 +330,17 @@
     .plan .btn { width: 100%; }
     @media (min-width: 600px) { .plans { grid-template-columns: 1fr 1fr; } }
     @media (min-width: 1040px) { .plans { grid-template-columns: repeat(4, 1fr); } .plan--feature { transform: translateY(-12px); } }
+    /* Beta offer — full-width, sits above the standard plans */
+    .plan--beta { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem 2rem; background: var(--cream); color: var(--navy); border: 2px solid var(--mint); box-shadow: var(--shadow-lg); }
+    .plan--beta__main { display: flex; flex-direction: column; gap: 0.55rem; max-width: 48ch; }
+    .plan--beta .plan__name { color: var(--navy); }
+    .plan--beta__copy { color: var(--ink-80); font-size: 0.96rem; }
+    .plan--beta__side { display: flex; flex-direction: column; gap: 0.85rem; align-items: flex-start; }
+    .plan--beta .plan__amt { color: var(--navy); }
+    .plan--beta .plan__per { color: var(--ink-60); }
+    .plan--beta .btn { width: auto; }
+    .plan__flag--beta { position: static; align-self: flex-start; background: var(--mint); color: #0b3a2a; }
+    @media (min-width: 780px) { .plan--beta__side { align-items: flex-end; } }
 
     /* ============================================================
        CONTACT
@@ -390,6 +404,25 @@
 
     .to-top { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: var(--z-top); width: 46px; height: 46px; border-radius: 50%; background: var(--pink); color: #fff; border: 0; cursor: pointer; display: grid; place-items: center; box-shadow: var(--shadow-pink); opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity 0.3s, transform 0.3s var(--ease); }
     .to-top.is-on { opacity: 1; pointer-events: auto; transform: none; }
+    /* ============================================================
+       JOIN THE BETA
+       ============================================================ */
+    .beta-join { display: grid; gap: clamp(2rem, 4vw, 3.5rem); align-items: center; }
+    .beta-join__cta { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 1.75rem; }
+    .beta-join__card { background: var(--cream); color: var(--navy); border-radius: var(--r-lg); padding: clamp(1.75rem, 3vw, 2.25rem); border: 2px solid var(--mint); box-shadow: var(--shadow-lg); }
+    .beta-join__price { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.4rem, 1.6rem + 3vw, 3.2rem); line-height: 1; color: var(--navy); }
+    .beta-join__price span { font-size: 0.85rem; font-weight: 700; color: var(--ink-60); margin-left: 0.5rem; }
+    .beta-join__card ul { list-style: none; display: grid; gap: 0.6rem; margin: 1.25rem 0; }
+    .beta-join__card li { display: grid; grid-template-columns: auto 1fr; gap: 0.55rem; font-size: 0.95rem; color: var(--ink-80); align-items: start; }
+    .beta-join__card li span { color: #1c7a4a; font-weight: 800; }
+    .beta-join__note { font-size: 0.85rem; color: var(--ink-60); }
+    @media (min-width: 900px) { .beta-join { grid-template-columns: 1.1fr 0.9fr; } }
+    /* See it in action — example chats */
+    .demos { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+    .demo { border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid rgba(0,0,0,0.06); background: #e9e2da; }
+    .demo__cap { display: flex; align-items: center; gap: 0.5em; background: var(--navy); color: var(--on-navy); font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; padding: 0.7rem 1rem; }
+    .demo__body { padding: 1rem 0.85rem; display: flex; flex-direction: column; gap: 0.55rem; }
+    @media (min-width: 720px) { .demos { grid-template-columns: 1fr 1fr; } }
   </style>
 </head>
 <body>
@@ -412,10 +445,10 @@
         <a href="#how">How it works</a>
         <a href="#why">Why it works</a>
         <a href="#subjects">Subjects</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#beta">Join the beta</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="btn btn--primary nav__cta" style="padding:0.6em 1.1em;font-size:0.9rem" href="https://wa.me/27689388432?text=Hi%20Study%20Mate%20SA%2C%20I%27d%20like%20to%20get%20started%20%F0%9F%91%8B" target="_blank" rel="noopener">Start on WhatsApp</a>
+      <a class="btn btn--primary nav__cta" style="padding:0.6em 1.1em;font-size:0.9rem" href="#beta">Join the beta</a>
       <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
     </div>
     <div class="nav__mobile" id="mobileMenu">
@@ -424,9 +457,9 @@
           <a href="#how">How it works</a>
           <a href="#why">Why it works</a>
           <a href="#subjects">Subjects</a>
-          <a href="#pricing">Pricing</a>
+          <a href="#beta">Join the beta</a>
           <a href="#contact">Contact</a>
-          <a class="btn btn--primary" href="https://wa.me/27689388432?text=Hi%20Study%20Mate%20SA%2C%20I%27d%20like%20to%20get%20started%20%F0%9F%91%8B" target="_blank" rel="noopener">Start on WhatsApp</a>
+          <a class="btn btn--primary" href="#beta">Join the beta</a>
         </nav>
       </div></div>
     </div>
@@ -449,13 +482,10 @@
             <span>Powered by <b>Anthropic's Claude</b></span>
           </div>
           <div class="hero__ctas">
-            <a class="btn btn--primary" href="https://wa.me/27689388432?text=Hi%20Study%20Mate%20SA%2C%20I%27d%20like%20to%20get%20started%20%F0%9F%91%8B" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.1.1-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 00-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1.1 2.6c.1.2 1.8 2.8 4.4 3.9 1.7.7 2.3.8 3.1.7.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></svg>
-              Start on WhatsApp
-            </a>
-            <a class="btn btn--on-navy" href="#pricing">See pricing</a>
+            <a class="btn btn--primary" href="#beta">Join the free beta</a>
+            <a class="btn btn--on-navy" href="#how">How it works</a>
           </div>
-          <p class="hero__trust">Free every day. 10 questions, all three Claude models, no sign-up.</p>
+          <p class="hero__trust">Free and unlimited while we're in beta. All three Claude models, nothing to install.</p>
         </div>
 
         <div data-reveal>
@@ -497,14 +527,14 @@
       <div class="wrap">
         <div class="section__head" data-reveal>
           <h2>Three steps to getting unstuck</h2>
-          <p class="section__intro">No app, no sign-up, no waiting. Open WhatsApp and ask, the way you already text your friends.</p>
+          <p class="section__intro">No app to download. Enrol for the free beta, then it works just like texting a friend.</p>
         </div>
         <div class="steps" data-reveal>
           <div class="step">
             <div class="step__n" aria-hidden="true"></div>
             <div>
-              <h3>Save the number</h3>
-              <p>Add Study Mate SA to your contacts and send your first question, day or night, in plain language.</p>
+              <h3>Enrol for the beta</h3>
+              <p>Request access through the form below and we'll send you the link to get started. No app to download.</p>
             </div>
           </div>
           <div class="step">
@@ -525,7 +555,47 @@
       </div>
     </section>
 
-    <!-- ===================== WHY (bento) ===================== -->
+        <!-- ===================== SEE IT IN ACTION ===================== -->
+    <section class="section" id="examples">
+      <div class="wrap">
+        <div class="section__head" data-reveal>
+          <h2>See it in <span class="serif">action</span></h2>
+          <p class="section__intro">A few of the ways learners use Study Mate SA, right inside a WhatsApp chat.</p>
+        </div>
+        <div class="demos" data-reveal>
+          <div class="demo">
+            <div class="demo__cap">🧮 Working through a problem</div>
+            <div class="demo__body">
+              <div class="bubble bubble--me">Solve 2x^2 + 5x - 3 = 0<span class="bubble__time">16:32 ✓✓</span></div>
+              <div class="bubble bubble--bot"><div class="bubble__name">Study Mate SA</div>Lekker question. Before I solve it: which method are you practising, factorising or the quadratic formula? I want you to nail this yourself in the exam 😄<span class="bubble__time">16:32</span></div>
+            </div>
+          </div>
+          <div class="demo">
+            <div class="demo__cap">💡 Stuck? Ask for a hint</div>
+            <div class="demo__body">
+              <div class="bubble bubble--me">I'm stuck on this trig identity 😩 can I get a hint?<span class="bubble__time">19:05 ✓✓</span></div>
+              <div class="bubble bubble--bot"><div class="bubble__name">Study Mate SA</div>💡 Hint: rewrite tan θ as sin θ / cos θ, then find a common denominator. Watch what cancels out.<span class="bubble__time">19:05</span></div>
+            </div>
+          </div>
+          <div class="demo">
+            <div class="demo__cap">✍️ Essay and answer feedback</div>
+            <div class="demo__body">
+              <div class="bubble bubble--me">Can you check my essay intro and tell me how to improve it?<span class="bubble__time">20:48 ✓✓</span></div>
+              <div class="bubble bubble--bot"><div class="bubble__name">Study Mate SA</div>Strong hook! Two quick wins to reach the top band:<ul><li>Put your line of argument in the last sentence</li><li>Vary your sentence length in line 3</li></ul>Want me to mark it against the rubric? 📈<span class="bubble__time">20:48</span></div>
+            </div>
+          </div>
+          <div class="demo">
+            <div class="demo__cap">📄 Past papers and memos on demand</div>
+            <div class="demo__body">
+              <div class="bubble bubble--me">Send me the 2023 Maths Paper 1<span class="bubble__time">14:20 ✓✓</span></div>
+              <div class="bubble bubble--bot"><div class="bubble__name">Study Mate SA</div>📄 Mathematics Paper 1 (Nov 2023). Tap to open. Reply 'memo' if you want the marking guideline too.<span class="bubble__time">14:20</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- ===================== WHY (bento) ===================== -->
     <section class="section section--navy" id="why">
       <div class="wrap">
         <div class="section__head" data-reveal>
@@ -613,67 +683,27 @@
       </div>
     </section>
 
-    <!-- ===================== PRICING ===================== -->
-    <section class="section section--navy" id="pricing">
+    <!-- ===================== JOIN THE BETA ===================== -->
+    <section class="section section--navy" id="beta">
       <div class="wrap">
-        <div class="section__head" data-reveal style="max-width:46rem">
-          <h2>Simple, <span class="serif">honest</span> pricing</h2>
-          <p class="section__intro">Every plan includes all three Claude models, past papers, memos and photo scanning. The only difference is how long your access lasts and how many questions you can ask.</p>
-        </div>
-
-        <div class="price-banner" data-reveal>
-          <span>🤖 All 3 Claude models</span>
-          <span>✅ Past papers &amp; memos</span>
-          <span>📸 Photo a question</span>
-          <span>💬 On WhatsApp</span>
-        </div>
-
-        <div class="plans" data-reveal>
-          <!-- Free -->
-          <div class="plan">
-            <div class="plan__name">Free</div>
-            <div class="plan__price"><span class="plan__amt plan__amt--free">R0</span><span class="plan__per">forever</span></div>
-            <ul class="plan__perks">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>10 messages every day</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>All three Claude models</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Past papers, memos, photo scanning</li>
-            </ul>
-            <a class="btn btn--on-navy" href="https://wa.me/27689388432?text=Hi%20Study%20Mate%20SA%2C%20I%27d%20like%20to%20start%20on%20the%20free%20plan%20%F0%9F%91%8B" target="_blank" rel="noopener">Start free</a>
+        <div class="beta-join">
+          <div class="beta-join__copy" data-reveal>
+            <span class="tag tag--soon">🚀 Beta access · limited spots</span>
+            <h2 style="font-size:clamp(2rem, 1.4rem + 2.6vw, 3.25rem); margin-top:1rem;">Join the free beta</h2>
+            <p class="section__intro">Study Mate SA is in early access. Enrolled learners get the full tutor free: unlimited questions, all three Claude models, every Grade 12 subject, plus past papers and memos. Spots are limited, so we enrol learners by request.</p>
+            <div class="beta-join__cta">
+              <a class="btn btn--primary" href="#contact">Request your spot</a>
+            </div>
           </div>
-          <!-- Day Pass -->
-          <div class="plan">
-            <div class="plan__name">Day Pass</div>
-            <div class="plan__price"><span class="plan__amt">R8</span><span class="plan__per">24 hours</span></div>
-            <ul class="plan__perks">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Unlimited questions for 24 hours</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>All three Claude models</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Perfect before a test or exam</li>
+          <div class="beta-join__card" data-reveal>
+            <div class="beta-join__price">Free<span>during beta</span></div>
+            <ul>
+              <li><span>✓</span>Unlimited questions, no daily limit</li>
+              <li><span>✓</span>All three Claude models</li>
+              <li><span>✓</span>Every Grade 12 CAPS subject</li>
+              <li><span>✓</span>Past papers, memos &amp; photo scanning</li>
             </ul>
-            <a class="btn btn--on-navy" href="https://wa.me/27689388432?text=Hi%2C%20I%27d%20like%20the%20Day%20Pass%20(R8)%20please" target="_blank" rel="noopener">Get the Day Pass</a>
-          </div>
-          <!-- Matric Month (featured) -->
-          <div class="plan plan--feature">
-            <span class="plan__flag">Most popular</span>
-            <div class="plan__name">Matric Month</div>
-            <div class="plan__price"><span class="plan__amt">R49</span><span class="plan__per">30 days</span></div>
-            <ul class="plan__perks">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Unlimited questions for 30 days</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>All three Claude models</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Essay feedback and exam technique</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Less than one hour of tutoring</li>
-            </ul>
-            <a class="btn btn--primary" href="https://wa.me/27689388432?text=Hi%2C%20I%27d%20like%20the%20Matric%20Month%20(R49)%20please" target="_blank" rel="noopener">Get Matric Month</a>
-          </div>
-          <!-- Exam Season -->
-          <div class="plan">
-            <div class="plan__name">Exam Season</div>
-            <div class="plan__price"><span class="plan__amt">R79</span><span class="plan__per">60 days</span></div>
-            <ul class="plan__perks">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Everything in Matric Month</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>60 full days of support</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Covers trials and finals</li>
-            </ul>
-            <a class="btn btn--on-navy" href="https://wa.me/27689388432?text=Hi%2C%20I%27d%20like%20the%20Exam%20Season%20(R79)%20please" target="_blank" rel="noopener">Get Exam Season</a>
+            <p class="beta-join__note">No card needed. Pricing arrives after the beta.</p>
           </div>
         </div>
       </div>
@@ -686,10 +716,6 @@
           <h2 style="font-size:clamp(2rem,1.4rem + 2.6vw,3rem)">Let's <span class="serif">talk</span></h2>
           <p class="section__intro">A Grade 12 learner ready to start, a Grade 10 or 11 learner keen for early access, or a parent with questions. We'd love to hear from you.</p>
           <div class="channels">
-            <a class="channel" href="https://wa.me/27689388432?text=Hi%20Study%20Mate%20SA%20%F0%9F%91%8B" target="_blank" rel="noopener">
-              <span class="channel__icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20z"/></svg></span>
-              <span><span class="channel__label">WhatsApp</span><br><span class="channel__value">+27 68 938 8432</span></span>
-            </a>
             <a class="channel" href="mailto:hello@studymatesa.co.za">
               <span class="channel__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
               <span><span class="channel__label">General enquiries</span><br><span class="channel__value">hello@studymatesa.co.za</span></span>
@@ -708,7 +734,7 @@
               <div class="field"><label for="f-email">Email address</label><input id="f-email" name="email" type="email" placeholder="you@example.com" required /></div>
             </div>
             <div class="field-row">
-              <div class="field"><label for="f-phone">Phone / WhatsApp (optional)</label><input id="f-phone" name="phone" type="tel" placeholder="+27 …" /></div>
+              <div class="field"><label for="f-phone">Phone / WhatsApp (optional)</label><input id="f-phone" name="phone" type="tel" placeholder="Your WhatsApp number" /></div>
               <div class="field"><label for="f-type">I am a…</label>
                 <select id="f-type" name="i_am_a">
                   <option value="">Select one</option>
@@ -757,7 +783,7 @@
           <a href="#how">How it works</a>
           <a href="#why">Why it works</a>
           <a href="#subjects">Subjects</a>
-          <a href="#pricing">Pricing</a>
+          <a href="#beta">Join the beta</a>
           <a href="#contact">Contact</a>
         </div>
         <div class="footer__col">
@@ -846,7 +872,7 @@
         form.style.display = 'none'; success.classList.add('is-on');
       } catch (err) {
         btn.disabled = false; btn.textContent = label;
-        alert("Sorry, something went wrong. Please WhatsApp or email us directly and we'll get right back to you.");
+        alert("Sorry, something went wrong. Please email us at hello@studymatesa.co.za and we'll get right back to you.");
       }
     });
   </script>
