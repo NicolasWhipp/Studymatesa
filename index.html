@@ -6,10 +6,10 @@
   <title>Study Mate SA: Your 24/7 AI Tutor on WhatsApp</title>
   <meta name="description" content="CAPS-aligned AI tutoring on WhatsApp for Grade 12 learners. Grade 10 and 11 coming soon. Powered by Anthropic's Claude. Always available, always affordable." />
   <script>document.documentElement.className = "js";</script>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' rx='44' fill='%23001858'/%3E%3Ctext x='100' y='150' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='150' fill='%23FEF6E4'%3Esm%3Ctspan fill='%23F582AE'%3E.%3C/tspan%3E%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2096%2096%22%3E%3Cpath%20d%3D%22M32%2C0%20H64%20A32%2C32%200%200%201%2096%2C32%20V64%20A32%2C32%200%200%201%2064%2C96%20H8%20A8%2C8%200%200%201%200%2C88%20V32%20A32%2C32%200%200%201%2032%2C0%20Z%22%20fill%3D%22%23103258%22/%3E%3Ctext%20x%3D%2242%22%20y%3D%2252%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%20font-family%3D%22Georgia%2Cserif%22%20font-weight%3D%22600%22%20font-size%3D%2262%22%20fill%3D%22%23FAF8F3%22%3ES%3C/text%3E%3Ccircle%20cx%3D%2271%22%20cy%3D%2264%22%20r%3D%227%22%20fill%3D%22%23E8B84B%22/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Nunito:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Inter:wght@400..800&family=JetBrains+Mono:wght@500..700&display=swap" rel="stylesheet" />
 
   <style>
     /* ============================================================
@@ -17,31 +17,32 @@
        ============================================================ */
     :root {
       /* brand core */
-      --cream:   #FEF6E4;
-      --cream-2: #FFFDF7;
-      --navy:    #001858;
-      --navy-2:  #0E2566;
-      --pink:    #F582AE;
-      --pink-2:  #FBD5E3;
-      --butter:  #FFD166;
-      --mint:    #8BD7A9;
-      --coral:   #FF7A6B;
+      --cream:   #FAF8F3;
+      --cream-2: #FFFFFF;
+      --navy:    #103258;
+      --navy-2:  #2F6DA8;
+      --pink:    #6C5CE7;
+      --pink-2:  #ECE9FB;
+      --butter:  #E8B84B;
+      --mint:    #1F7A63;
+      --coral:   #E1574C;
 
       /* ink ramp tuned for contrast on cream */
-      --ink:      #001858;
+      --ink:      #103258;
       --ink-80:   color-mix(in oklab, var(--navy) 82%, var(--cream));
-      --ink-60:   color-mix(in oklab, var(--navy) 64%, var(--cream));
+      --ink-60:   color-mix(in oklab, var(--navy) 66%, var(--cream));
       --line:     color-mix(in oklab, var(--navy) 14%, transparent);
 
       /* ink ramp on navy */
-      --on-navy:     #FEF6E4;
+      --on-navy:     #FAF8F3;
       --on-navy-70:  color-mix(in oklab, var(--cream) 74%, var(--navy));
-      --on-navy-50:  color-mix(in oklab, var(--cream) 52%, var(--navy));
+      --on-navy-50:  color-mix(in oklab, var(--cream) 62%, var(--navy));
       --line-navy:   color-mix(in oklab, var(--cream) 16%, transparent);
 
-      --font-display: "Bricolage Grotesque", system-ui, sans-serif;
-      --font-body:    "Nunito", system-ui, sans-serif;
-      --font-serif:   "Instrument Serif", Georgia, serif;
+      --font-display: "Fraunces", Georgia, serif;
+      --font-body:    "Inter", system-ui, -apple-system, sans-serif;
+      --font-serif:   "Fraunces", Georgia, serif;
+      --font-mono:    "JetBrains Mono", ui-monospace, monospace;
 
       --r-sm: 8px;
       --r-md: 14px;
@@ -60,7 +61,7 @@
       --shadow-sm: 0 1px 2px rgba(0,24,88,0.06), 0 4px 16px rgba(0,24,88,0.05);
       --shadow-md: 0 8px 30px rgba(0,24,88,0.10);
       --shadow-lg: 0 24px 60px rgba(0,24,88,0.16);
-      --shadow-pink: 0 10px 30px rgba(245,130,174,0.35);
+      --shadow-pink: 0 10px 30px rgba(108,92,231,0.30);
 
       --ease: cubic-bezier(0.22, 1, 0.36, 1);      /* ease-out-quint */
       --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);  /* ease-out-expo */
@@ -92,12 +93,13 @@
 
     h1, h2, h3, h4 {
       font-family: var(--font-display);
-      font-weight: 800;
+      font-weight: 600;
       line-height: 1.08;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
       text-wrap: balance;
     }
     .serif { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: 0; color: var(--pink); }
+    .section--navy .serif, .hero h1 .serif { color: #B3A8F2; }
     p { text-wrap: pretty; }
 
     .wrap { width: 100%; max-width: 1160px; margin-inline: auto; padding-inline: clamp(20px, 5vw, 40px); }
@@ -115,10 +117,10 @@
     /* tag / kicker — used deliberately, not above every section */
     .tag {
       display: inline-flex; align-items: center; gap: 0.5em;
-      font-family: var(--font-display); font-weight: 700; font-size: 0.8rem;
+      font-family: var(--font-body); font-weight: 700; font-size: 0.8rem;
       padding: 0.4em 0.9em; border-radius: var(--r-pill);
     }
-    .tag--pink { background: var(--pink-2); color: #8e2356; }
+    .tag--pink { background: var(--pink-2); color: #5A48E0; }
     .tag--soon { background: color-mix(in oklab, var(--butter) 16%, transparent); color: var(--butter); border: 1px solid color-mix(in oklab, var(--butter) 60%, transparent); font-weight: 800; }
     .tag--ghost { background: color-mix(in oklab, var(--cream) 12%, transparent); color: var(--on-navy-70); border: 1px solid var(--line-navy); }
 
@@ -126,7 +128,7 @@
     .btn {
       --bg: var(--pink); --fg: #fff;
       display: inline-flex; align-items: center; justify-content: center; gap: 0.55em;
-      font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+      font-family: var(--font-body); font-weight: 700; font-size: 1rem;
       padding: 0.85em 1.5em; border-radius: var(--r-pill);
       background: var(--bg); color: var(--fg); border: 2px solid transparent; cursor: pointer;
       transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.2s ease;
@@ -136,7 +138,7 @@
     .btn:hover { transform: translateY(-2px); }
     .btn:active { transform: translateY(0); }
     .btn--primary { box-shadow: var(--shadow-pink); }
-    .btn--primary:hover { background: #ef6f9f; box-shadow: 0 14px 36px rgba(245,130,174,0.45); }
+    .btn--primary:hover { background: #5A48E0; box-shadow: 0 14px 36px rgba(108,92,231,0.40); }
     .btn--navy { --bg: var(--navy); --fg: var(--cream); box-shadow: var(--shadow-sm); }
     .btn--navy:hover { --bg: var(--navy-2); }
     .btn--ghost { --bg: transparent; --fg: var(--navy); border-color: color-mix(in oklab, var(--navy) 28%, transparent); }
@@ -158,7 +160,7 @@
     .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; height: 72px; }
     .nav__logo svg { height: 30px; width: auto; }
     .nav__links { display: none; align-items: center; gap: 2rem; }
-    .nav__links a { font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; color: var(--ink-80); transition: color 0.2s; }
+    .nav__links a { font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; color: var(--ink-80); transition: color 0.2s; }
     .nav__links a:hover { color: var(--pink); }
     .nav__cta { display: none; }
     .nav__burger { display: inline-flex; flex-direction: column; gap: 5px; padding: 8px; background: none; border: 0; cursor: pointer; }
@@ -170,7 +172,7 @@
     .nav__mobile.is-open { grid-template-rows: 1fr; }
     .nav__mobile > div { overflow: hidden; }
     .nav__mobile nav { display: flex; flex-direction: column; padding: 0.5rem 0 1.25rem; }
-    .nav__mobile a { font-family: var(--font-display); font-weight: 600; padding: 0.75rem 0; border-bottom: 1px solid var(--line); color: var(--ink-80); }
+    .nav__mobile a { font-family: var(--font-body); font-weight: 600; padding: 0.75rem 0; border-bottom: 1px solid var(--line); color: var(--ink-80); }
     .nav__mobile .btn { margin-top: 1rem; }
     @media (min-width: 880px) {
       .nav__links, .nav__cta { display: flex; }
@@ -184,7 +186,7 @@
     .hero::before {
       content: ""; position: absolute; width: 60vw; height: 60vw; max-width: 720px; max-height: 720px;
       top: -18%; right: -12%; border-radius: 50%;
-      background: radial-gradient(circle, rgba(245,130,174,0.28), transparent 62%); pointer-events: none;
+      background: radial-gradient(circle, rgba(108,92,231,0.30), transparent 62%); pointer-events: none;
     }
     .hero__grid { display: grid; gap: clamp(2.5rem, 5vw, 4rem); align-items: center; position: relative; z-index: 1; }
     .hero__pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.5rem; }
@@ -199,8 +201,8 @@
       border: 1px solid color-mix(in oklab, var(--pink) 36%, transparent);
       font-family: var(--font-display); font-weight: 600; font-size: 0.9rem; color: var(--on-navy-70);
     }
-    .hero__claude b { color: var(--pink); font-weight: 800; }
-    .hero__claude svg { width: 1.1rem; height: 1.1rem; color: var(--pink); flex-shrink: 0; }
+    .hero__claude b { color: #B3A8F2; font-weight: 700; }
+    .hero__claude svg { width: 1.1rem; height: 1.1rem; color: #B3A8F2; flex-shrink: 0; }
     .hero__ctas { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 2rem; }
     .hero__trust { margin-top: 1.5rem; font-size: 0.9rem; color: var(--on-navy-50); }
 
@@ -263,9 +265,9 @@
     .bcell__lead { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 1rem + 1.3vw, 1.9rem); color: var(--on-navy); line-height: 1.12; }
     .bcell__lead .serif { color: var(--pink); }
     .bcell p { margin-top: 0.75rem; color: var(--on-navy-70); font-size: 0.98rem; }
-    .bcell--feature { background: var(--pink); border-color: var(--pink); color: #3a0f23; }
-    .bcell--feature .bcell__lead, .bcell--feature p { color: #3a0f23; }
-    .bcell--feature p { color: #5b1838; }
+    .bcell--feature { background: var(--pink); border-color: var(--pink); color: #fff; }
+    .bcell--feature .bcell__lead, .bcell--feature p { color: #fff; }
+    .bcell--feature p { color: rgba(255,255,255,0.86); }
     .bcell__big { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.4rem, 1.5rem + 3vw, 3.4rem); line-height: 1; color: var(--on-navy); }
     .bcell__big .unit { font-size: 0.42em; color: var(--on-navy-70); }
     @media (min-width: 720px) {
@@ -283,8 +285,8 @@
     .spectrum { position: relative; display: grid; gap: 1rem; }
     .spectrum__rail { display: none; }
     .model { background: var(--navy); color: var(--on-navy); border-radius: var(--r-lg); padding: clamp(1.5rem, 3vw, 2rem); position: relative; overflow: hidden; }
-    .model__chip { display: inline-flex; align-items: center; gap: 0.5em; font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; padding: 0.35em 0.85em; border-radius: var(--r-pill); background: var(--line-navy); color: var(--on-navy); margin-bottom: 1rem; }
-    .model__role { font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; color: var(--pink); margin-bottom: 0.5rem; }
+    .model__chip { display: inline-flex; align-items: center; gap: 0.5em; font-family: var(--font-body); font-weight: 700; font-size: 0.85rem; padding: 0.35em 0.85em; border-radius: var(--r-pill); background: var(--line-navy); color: var(--on-navy); margin-bottom: 1rem; }
+    .model__role { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: #B3A8F2; margin-bottom: 0.5rem; }
     .model p { color: var(--on-navy-70); font-size: 0.95rem; }
     .model__meter { display: flex; gap: 4px; margin-top: 1.25rem; }
     .model__meter i { height: 5px; flex: 1; border-radius: var(--r-pill); background: var(--line-navy); }
@@ -349,15 +351,15 @@
     .channel { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; border-radius: var(--r-md); background: var(--cream-2); border: 1px solid var(--line); transition: transform 0.25s var(--ease), border-color 0.25s, box-shadow 0.25s; }
     a.channel:hover { transform: translateY(-2px); border-color: var(--pink); box-shadow: var(--shadow-md); }
     .channel__icon { width: 2.75rem; height: 2.75rem; border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; background: var(--pink-2); }
-    .channel__icon svg { width: 1.4rem; height: 1.4rem; color: #b3306b; }
-    .channel__label { font-family: var(--font-display); font-weight: 700; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-60); }
+    .channel__icon svg { width: 1.4rem; height: 1.4rem; color: #5A48E0; }
+    .channel__label { font-family: var(--font-mono); font-weight: 700; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-60); }
     .channel__value { font-weight: 700; color: var(--navy); }
     .channels { display: grid; gap: 0.85rem; margin-top: 1.75rem; }
 
     .form { background: var(--cream-2); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(1.5rem, 3vw, 2.25rem); box-shadow: var(--shadow-sm); }
     .form h3 { font-size: 1.3rem; margin-bottom: 1.25rem; }
     .field { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
-    .field label { font-family: var(--font-display); font-weight: 700; font-size: 0.82rem; color: var(--navy); }
+    .field label { font-family: var(--font-body); font-weight: 700; font-size: 0.82rem; color: var(--navy); }
     .field input, .field select, .field textarea {
       font-family: var(--font-body); font-size: 0.97rem; color: var(--navy);
       background: var(--cream); border: 1.5px solid var(--line); border-radius: var(--r-md);
@@ -420,7 +422,7 @@
     /* See it in action — example chats */
     .demos { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
     .demo { border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid rgba(0,0,0,0.06); background: #e9e2da; }
-    .demo__cap { display: flex; align-items: center; gap: 0.5em; background: var(--navy); color: var(--on-navy); font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; padding: 0.7rem 1rem; }
+    .demo__cap { display: flex; align-items: center; gap: 0.5em; background: var(--navy); color: var(--on-navy); font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; padding: 0.7rem 1rem; }
     .demo__body { padding: 1rem 0.85rem; display: flex; flex-direction: column; gap: 0.55rem; }
     @media (min-width: 720px) { .demos { grid-template-columns: 1fr 1fr; } }
   </style>
@@ -431,15 +433,7 @@
   <header class="nav" id="nav">
     <div class="wrap nav__inner">
       <a href="#top" class="nav__logo" aria-label="Study Mate SA home">
-        <svg viewBox="0 0 640 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Study Mate SA">
-          <g transform="scale(0.6)">
-            <path d="M 38 6 L 150 6 L 194 50 L 194 156 Q 194 186 164 186 L 70 186 L 34 214 L 50 186 L 36 186 Q 6 186 6 156 L 6 36 Q 6 6 36 6 Z" fill="#001858"/>
-            <path d="M 150 6 L 194 50 L 150 50 Z" fill="#F582AE"/>
-            <text x="100" y="135" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-weight="400" font-size="112" fill="#FEF6E4" letter-spacing="-2">sm<tspan fill="#F582AE">.</tspan></text>
-          </g>
-          <text x="160" y="92" font-family="'Bricolage Grotesque',sans-serif" font-weight="800" font-size="76" fill="#001858" letter-spacing="-3">Study Mate</text>
-          <text x="528" y="92" font-family="Georgia,serif" font-style="italic" font-weight="400" font-size="60" fill="#F582AE">.sa</text>
-        </svg>
+        <svg viewBox="0 0 360 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Study Mate South Africa"><path d="M32,0 H64 A32,32 0 0 1 96,32 V64 A32,32 0 0 1 64,96 H8 A8,8 0 0 1 0,88 V32 A32,32 0 0 1 32,0 Z" fill="#103258"/><text x="42" y="52" text-anchor="middle" dominant-baseline="central" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="62" fill="#FAF8F3">S</text><circle cx="71" cy="64" r="7" fill="#E8B84B"/><g transform="translate(120,0)"><text x="0" y="44" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="40" letter-spacing="-0.4" fill="#103258">Study Mate</text><text x="1.5" y="70" font-family="Inter, system-ui, sans-serif" font-weight="600" font-size="13" letter-spacing="2.4" fill="#5A48E0">SOUTH AFRICA</text></g></svg>
       </a>
       <nav class="nav__links" aria-label="Primary">
         <a href="#how">How it works</a>
@@ -714,7 +708,7 @@
       <div class="wrap contact__grid">
         <div data-reveal>
           <h2 style="font-size:clamp(2rem,1.4rem + 2.6vw,3rem)">Let's <span class="serif">talk</span></h2>
-          <p class="section__intro">A Grade 12 learner ready to start, a Grade 10 or 11 learner keen for early access, or a parent with questions. We'd love to hear from you.</p>
+          <p class="section__intro">A Grade 12 learner ready to start, or a parent with questions. We'd love to hear from you.</p>
           <div class="channels">
             <a class="channel" href="mailto:hello@studymatesa.co.za">
               <span class="channel__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
@@ -739,7 +733,6 @@
                 <select id="f-type" name="i_am_a">
                   <option value="">Select one</option>
                   <option>Grade 12 learner</option>
-                  <option>Grade 10 / 11 learner (early access)</option>
                   <option>Parent or guardian</option>
                   <option>Teacher or educator</option>
                   <option>Other</option>
@@ -766,15 +759,7 @@
       <div class="footer__grid">
         <div>
           <div class="footer__logo">
-            <svg viewBox="0 0 640 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Study Mate SA">
-              <g transform="scale(0.6)">
-                <path d="M 38 6 L 150 6 L 194 50 L 194 156 Q 194 186 164 186 L 70 186 L 34 214 L 50 186 L 36 186 Q 6 186 6 156 L 6 36 Q 6 6 36 6 Z" fill="#FEF6E4"/>
-                <path d="M 150 6 L 194 50 L 150 50 Z" fill="#F582AE"/>
-                <text x="100" y="135" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-weight="400" font-size="112" fill="#001858" letter-spacing="-2">sm<tspan fill="#F582AE">.</tspan></text>
-              </g>
-              <text x="160" y="92" font-family="'Bricolage Grotesque',sans-serif" font-weight="800" font-size="76" fill="#FEF6E4" letter-spacing="-3">Study Mate</text>
-              <text x="528" y="92" font-family="Georgia,serif" font-style="italic" font-weight="400" font-size="60" fill="#F582AE">.sa</text>
-            </svg>
+            <svg viewBox="0 0 360 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Study Mate South Africa"><path d="M32,0 H64 A32,32 0 0 1 96,32 V64 A32,32 0 0 1 64,96 H8 A8,8 0 0 1 0,88 V32 A32,32 0 0 1 32,0 Z" fill="#FAF8F3"/><text x="42" y="52" text-anchor="middle" dominant-baseline="central" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="62" fill="#103258">S</text><circle cx="71" cy="64" r="7" fill="#E8B84B"/><g transform="translate(120,0)"><text x="0" y="44" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="40" letter-spacing="-0.4" fill="#FAF8F3">Study Mate</text><text x="1.5" y="70" font-family="Inter, system-ui, sans-serif" font-weight="600" font-size="13" letter-spacing="2.4" fill="#B3A8F2">SOUTH AFRICA</text></g></svg>
           </div>
           <p class="footer__tagline">Your 24/7 AI matric tutor, on WhatsApp. CAPS-aligned, affordable, always available.</p>
         </div>
