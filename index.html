@@ -186,7 +186,7 @@
     .hero::before {
       content: ""; position: absolute; width: 60vw; height: 60vw; max-width: 720px; max-height: 720px;
       top: -18%; right: -12%; border-radius: 50%;
-      background: radial-gradient(circle, rgba(108,92,231,0.30), transparent 62%); pointer-events: none;
+      background: radial-gradient(circle, rgba(108,92,231,0.30), transparent 62%); pointer-events: none; animation: sm-drift 22s ease-in-out infinite alternate;
     }
     .hero__grid { display: grid; gap: clamp(2.5rem, 5vw, 4rem); align-items: center; position: relative; z-index: 1; }
     .hero__pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.5rem; }
@@ -221,7 +221,7 @@
     .chat__avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--mint); display: grid; place-items: center; font-size: 1.1rem; flex-shrink: 0; }
     .chat__who { font-weight: 700; font-size: 0.95rem; line-height: 1.2; }
     .chat__status { font-size: 0.72rem; opacity: 0.8; display: flex; align-items: center; gap: 0.35em; }
-    .chat__status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--mint); }
+    .chat__status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--mint); animation: sm-pulse 2.2s ease-in-out infinite; }
     .chat__body { padding: 1rem 0.85rem; display: flex; flex-direction: column; gap: 0.6rem; min-height: 340px;
       background-image: linear-gradient(rgba(233,226,218,0.92), rgba(233,226,218,0.92)); }
     .bubble { max-width: 86%; padding: 0.6rem 0.8rem; border-radius: 14px; font-size: 0.875rem; line-height: 1.5; color: #111b21; box-shadow: 0 1px 1px rgba(0,0,0,0.07); }
@@ -404,6 +404,40 @@
       [data-reveal].is-in { transition: none; }
     }
 
+    /* ============================================================
+       MOTION — entrance, stagger, ambient (reduced-motion safe)
+       ============================================================ */
+    @keyframes sm-fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    @keyframes sm-meter   { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    @keyframes sm-pulse   { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.75); } }
+    @keyframes sm-drift   { from { transform: translate(0,0) scale(1); } to { transform: translate(-5%,4%) scale(1.08); } }
+
+    /* Hero left column: staggered entrance on load */
+    .js .hero__pills, .js .hero h1, .js .hero__sub, .js .hero__claude, .js .hero__ctas, .js .hero__trust {
+      animation: sm-fade-up 0.7s var(--ease-soft) both;
+    }
+    .js .hero__pills  { animation-delay: 0.05s; }
+    .js .hero h1      { animation-delay: 0.15s; }
+    .js .hero__sub    { animation-delay: 0.30s; }
+    .js .hero__claude { animation-delay: 0.42s; }
+    .js .hero__ctas   { animation-delay: 0.54s; }
+    .js .hero__trust  { animation-delay: 0.64s; }
+
+    /* Grids cascade their children into view */
+    .js [data-stagger] > * { opacity: 0; transform: translateY(18px); }
+    [data-stagger].is-in > * { animation: sm-fade-up 0.55s var(--ease-soft) both; animation-delay: calc(var(--i, 0) * 70ms); }
+
+    /* Model speed-to-depth bars fill when revealed */
+    .model__meter i { transform-origin: left; }
+    [data-stagger].is-in .model__meter i.on { animation: sm-meter 0.5s var(--ease-soft) both; animation-delay: calc(var(--i, 0) * 70ms + 0.35s); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .js .hero__pills, .js .hero h1, .js .hero__sub, .js .hero__claude, .js .hero__ctas, .js .hero__trust,
+      .js [data-stagger] > * { animation: none; opacity: 1; transform: none; }
+      [data-stagger].is-in .model__meter i.on { animation: none; }
+      .hero::before, .chat__status::before { animation: none !important; }
+    }
+
     .to-top { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: var(--z-top); width: 46px; height: 46px; border-radius: 50%; background: var(--pink); color: #fff; border: 0; cursor: pointer; display: grid; place-items: center; box-shadow: var(--shadow-pink); opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity 0.3s, transform 0.3s var(--ease); }
     .to-top.is-on { opacity: 1; pointer-events: auto; transform: none; }
     /* ============================================================
@@ -523,7 +557,7 @@
           <h2>Three steps to getting unstuck</h2>
           <p class="section__intro">No app to download. Enrol for the free beta, then it works just like texting a friend.</p>
         </div>
-        <div class="steps" data-reveal>
+        <div class="steps" data-stagger>
           <div class="step">
             <div class="step__n" aria-hidden="true"></div>
             <div>
@@ -556,7 +590,7 @@
           <h2>See it in <span class="serif">action</span></h2>
           <p class="section__intro">A few of the ways learners use Study Mate SA, right inside a WhatsApp chat.</p>
         </div>
-        <div class="demos" data-reveal>
+        <div class="demos" data-stagger>
           <div class="demo">
             <div class="demo__cap">🧮 Working through a problem</div>
             <div class="demo__body">
@@ -596,7 +630,7 @@
           <h2>A <span class="serif">complement</span> to school and your tutor, not a replacement.</h2>
           <p class="section__intro">Study Mate SA fills the gaps between the bell ringing and your next tutor session.</p>
         </div>
-        <div class="bento" data-reveal>
+        <div class="bento" data-stagger>
           <div class="bcell bcell--a bcell--feature">
             <div class="bcell__lead">It's 10pm. Your teacher is asleep, your tutor is off, your test is tomorrow.</div>
             <p>Study Mate SA answers every hour of every day. No appointment, no waiting, no judgement when you ask the same thing five different ways.</p>
@@ -629,7 +663,7 @@
           <h2>One tutor, <span class="serif">three minds</span></h2>
           <p class="section__intro">Study Mate SA runs on Anthropic's Claude and picks the right model for each question automatically. Every plan includes all three.</p>
         </div>
-        <div class="spectrum" data-reveal>
+        <div class="spectrum" data-stagger>
           <div class="model">
             <span class="model__chip">⚡ Claude Haiku</span>
             <div class="model__role">Fast and responsive</div>
@@ -660,7 +694,7 @@
           <h2>Your core subjects, covered</h2>
           <p class="section__intro">Full CAPS coverage for Grade 12, grounded in DBE curriculum documents and NSC examination guidelines.</p>
         </div>
-        <div class="subjects" data-reveal>
+        <div class="subjects" data-stagger>
           <div class="subj"><span class="subj__icon" aria-hidden="true">📐</span><div><div class="subj__name">Mathematics</div><div class="subj__topics">Algebra, functions, trig, calculus, statistics, geometry.</div></div></div>
           <div class="subj"><span class="subj__icon" aria-hidden="true">⚗️</span><div><div class="subj__name">Physical Sciences</div><div class="subj__topics">Mechanics, waves, electricity, bonding, stoichiometry.</div></div></div>
           <div class="subj"><span class="subj__icon" aria-hidden="true">🌿</span><div><div class="subj__name">Life Sciences</div><div class="subj__topics">Genetics, evolution, ecology, human biology, essays.</div></div></div>
@@ -824,7 +858,8 @@
     toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 
     // reveal on scroll — already visible by default; only animates when JS + observer run
-    const revealEls = document.querySelectorAll('[data-reveal]');
+    const revealEls = document.querySelectorAll('[data-reveal], [data-stagger]');
+    document.querySelectorAll('[data-stagger]').forEach(c => { let i = 0; for (const ch of c.children) ch.style.setProperty('--i', i++); });
     const showAll = () => revealEls.forEach(el => el.classList.add('is-in'));
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries, obs) => {
