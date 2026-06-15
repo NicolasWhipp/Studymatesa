@@ -459,6 +459,18 @@
     .demo__cap { display: flex; align-items: center; gap: 0.5em; background: var(--navy); color: var(--on-navy); font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; padding: 0.7rem 1rem; }
     .demo__body { padding: 1rem 0.85rem; display: flex; flex-direction: column; gap: 0.55rem; }
     @media (min-width: 720px) { .demos { grid-template-columns: 1fr 1fr; } }
+    /* IEB audience line + FAQ */
+    .subjects__audience { margin-top: 0.85rem; font-family: var(--font-body); font-weight: 600; font-size: 1rem; color: var(--navy); }
+    .subjects__audience strong { color: #5A48E0; }
+    .faq { max-width: 760px; }
+    .faq__item { border: 1px solid var(--line); border-radius: var(--r-md); background: var(--cream-2); margin-bottom: 0.85rem; overflow: hidden; }
+    .faq__q { cursor: pointer; list-style: none; padding: 1.1rem 1.25rem; font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: var(--navy); display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .faq__q::-webkit-details-marker { display: none; }
+    .faq__q::after { content: "+"; font-family: var(--font-body); font-weight: 700; color: var(--pink); font-size: 1.4rem; line-height: 1; transition: transform 0.25s var(--ease); }
+    .faq__item[open] .faq__q::after { transform: rotate(45deg); }
+    .faq__a { padding: 0 1.25rem 1.2rem; }
+    .faq__a p { color: var(--ink-60); font-size: 0.96rem; max-width: 65ch; }
+    @media (prefers-reduced-motion: reduce) { .faq__q::after { transition: none; } }
   </style>
 </head>
 <body>
@@ -693,6 +705,7 @@
         <div class="section__head" data-reveal>
           <h2>Your core subjects, covered</h2>
           <p class="section__intro">Full CAPS coverage for Grade 12, grounded in DBE curriculum documents and NSC examination guidelines.</p>
+          <p class="subjects__audience">Built for South African Grade 12 — CAPS-aligned for both <strong>NSC (DBE)</strong> and <strong>IEB</strong> learners.</p>
         </div>
         <div class="subjects" data-stagger>
           <div class="subj"><span class="subj__icon" aria-hidden="true">📐</span><div><div class="subj__name">Mathematics</div><div class="subj__topics">Algebra, functions, trig, calculus, statistics, geometry.</div></div></div>
@@ -733,6 +746,23 @@
             </ul>
             <p class="beta-join__note">No card needed. Pricing arrives after the beta.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section__head" data-reveal>
+          <h2>Common <span class="serif">questions</span></h2>
+        </div>
+        <div class="faq" data-stagger>
+          <details class="faq__item" open>
+            <summary class="faq__q">I'm at an IEB school. Can Study Mate help me?</summary>
+            <div class="faq__a">
+              <p>Yes. IEB and NSC follow the same CAPS curriculum, so all the theory, worked examples and concept help apply to you directly. Right now our past papers and exam-technique tips are built on the NSC exams — full IEB exam support (papers, rubrics, the annual theme) is on the way. When something is IEB-specific, Study Mate tells you and points you to your teacher rather than guess.</p>
+            </div>
+          </details>
         </div>
       </div>
     </section>
