@@ -944,8 +944,22 @@
         if (!data.success) throw new Error(data.message || 'failed');
         form.style.display = 'none'; success.classList.add('is-on');
       } catch (err) {
+        console.error('Contact form send failed:', err);
         btn.disabled = false; btn.textContent = label;
-        alert("Sorry, something went wrong. Please email us at hello@studymatesa.co.za and we'll get right back to you.");
+        // Fallback: don't lose the lead — offer to open a pre-filled email
+        const v = n => (form.querySelector('[name=' + n + ']')?.value || '').trim();
+        const subject = encodeURIComponent('Study Mate SA enquiry' + (v('subject') ? ' — ' + v('subject') : ''));
+        const body = encodeURIComponent(
+          'Name: ' + v('name') + '\n' +
+          'Email: ' + v('email') + '\n' +
+          'Phone / WhatsApp: ' + v('phone') + '\n' +
+          'I am a: ' + v('i_am_a') + '\n\n' +
+          v('message')
+        );
+        const proceed = confirm("We couldn't send that automatically — your browser may be blocking the form.\n\nClick OK to send it as an email instead (your details will be filled in for you), or Cancel to email us directly at hello@studymatesa.co.za.");
+        if (proceed) {
+          window.location.href = 'mailto:hello@studymatesa.co.za?subject=' + subject + '&body=' + body;
+        }
       }
     });
   </script>
