@@ -462,7 +462,10 @@
     /* IEB audience line + FAQ */
     .subjects__audience { margin-top: 0.85rem; font-family: var(--font-body); font-weight: 600; font-size: 1rem; color: var(--navy); }
     .subjects__audience strong { color: #5A48E0; }
-    .faq { max-width: 760px; }
+    .faq-groups { display: grid; gap: 2rem; }
+    .faq-group__title { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-60); margin-bottom: 0.85rem; }
+    .faq__a a { color: #5A48E0; font-weight: 600; }
+    @media (min-width: 820px) { .faq-groups { grid-template-columns: 1fr 1fr; gap: 2.25rem 2.5rem; align-items: start; } }
     .faq__item { border: 1px solid var(--line); border-radius: var(--r-md); background: var(--cream-2); margin-bottom: 0.85rem; overflow: hidden; }
     .faq__q { cursor: pointer; list-style: none; padding: 1.1rem 1.25rem; font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: var(--navy); display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
     .faq__q::-webkit-details-marker { display: none; }
@@ -756,13 +759,33 @@
         <div class="section__head" data-reveal>
           <h2>Common <span class="serif">questions</span></h2>
         </div>
-        <div class="faq" data-stagger>
-          <details class="faq__item" open>
-            <summary class="faq__q">I'm at an IEB school. Can Study Mate help me?</summary>
-            <div class="faq__a">
-              <p>Yes. IEB and NSC follow the same CAPS curriculum, so all the theory, worked examples and concept help apply to you directly. Right now our past papers and exam-technique tips are built on the NSC exams — full IEB exam support (papers, rubrics, the annual theme) is on the way. When something is IEB-specific, Study Mate tells you and points you to your teacher rather than guess.</p>
-            </div>
-          </details>
+        <div class="faq-groups" data-stagger>
+          <div class="faq-group">
+            <h3 class="faq-group__title">For learners</h3>
+            <details class="faq__item"><summary class="faq__q">Is it really free?</summary><div class="faq__a"><p>Yes, completely free and unlimited while we're in beta. If we introduce paid plans later, beta testers will hear first.</p></div></details>
+            <details class="faq__item"><summary class="faq__q">Which grades does it cover?</summary><div class="faq__a"><p>Grade 12 (Matric) right now. Grade 10 and 11 are coming soon — the tutoring already handles their questions, we're just adding dedicated content.</p></div></details>
+            <details class="faq__item"><summary class="faq__q">Do I need to download an app?</summary><div class="faq__a"><p>No. It runs entirely inside WhatsApp on any phone — no app, no new login, no data-heavy downloads.</p></div></details>
+            <details class="faq__item"><summary class="faq__q">Can it help in Afrikaans?</summary><div class="faq__a"><p>Yes. It tutors across all 11 CAPS subjects including Afrikaans Huistaal, and will answer in Afrikaans.</p></div></details>
+            <details class="faq__item"><summary class="faq__q">What if it gets something wrong?</summary><div class="faq__a"><p>It's grounded in the official CAPS curriculum, but it's still AI — always sanity-check important answers against your textbook or teacher, and tell us when something looks off.</p></div></details>
+          </div>
+          <div class="faq-group">
+            <h3 class="faq-group__title">For parents</h3>
+            <details class="faq__item"><summary class="faq__q">Is this just a way for my child to cheat?</summary><div class="faq__a"><p>The opposite. It's built to coach, not hand over answers — it uses step-by-step questioning and a “hint mode” that nudges without solving, so your child builds the skill themselves.</p></div></details>
+            <details class="faq__item"><summary class="faq__q">Is it safe and appropriate for my child?</summary><div class="faq__a"><p>It stays strictly on school subjects and redirects anything off-topic. We keep only what's needed to run the tutor.</p></div></details>
+            <details class="faq__item"><summary class="faq__q">What will it cost after the beta?</summary><div class="faq__a"><p>It's free now. We'll share pricing before any paid plans launch, and there'll be a genuinely useful free option.</p></div></details>
+          </div>
+          <div class="faq-group">
+            <h3 class="faq-group__title">For teachers &amp; schools</h3>
+            <details class="faq__item"><summary class="faq__q">Will this replace teachers?</summary><div class="faq__a"><p>No — it's an after-hours study aid that extends your teachers, never replaces them. It's strongest as homework and revision support between lessons.</p></div></details>
+            <details class="faq__item"><summary class="faq__q">Is it aligned to what we actually teach?</summary><div class="faq__a"><p>Yes. Answers are checked against official CAPS curriculum documents and NSC exam conventions (mark allocations, command words, method marks).</p></div></details>
+            <details class="faq__item"><summary class="faq__q">Does it work for IEB schools?</summary><div class="faq__a"><p>Yes for content (IEB and NSC share CAPS). Past papers and exam technique are NSC-based today; full IEB exam support (papers, rubrics, the annual theme) is on the way, and the tutor is honest with learners about that distinction.</p></div></details>
+            <details class="faq__item"><summary class="faq__q">How do we pilot it as a school?</summary><div class="faq__a"><p>Schools can join the free beta as a founding partner — a small pilot group and light feedback over a term. Email <a href="mailto:hello@studymatesa.co.za">hello@studymatesa.co.za</a>.</p></div></details>
+          </div>
+          <div class="faq-group">
+            <h3 class="faq-group__title">General</h3>
+            <details class="faq__item"><summary class="faq__q">Who's behind Study Mate SA?</summary><div class="faq__a"><p>A South African product by Digital Chemist, built specifically for the CAPS curriculum and powered by Claude AI.</p></div></details>
+            <details class="faq__item"><summary class="faq__q">How do I get access right now?</summary><div class="faq__a"><p>We're in invite-only private beta — email <a href="mailto:hello@studymatesa.co.za">hello@studymatesa.co.za</a> with your WhatsApp number to join.</p></div></details>
+          </div>
         </div>
       </div>
     </section>
