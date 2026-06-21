@@ -474,6 +474,19 @@
     .faq__a { padding: 0 1.25rem 1.2rem; }
     .faq__a p { color: var(--ink-60); font-size: 0.96rem; max-width: 65ch; }
     @media (prefers-reduced-motion: reduce) { .faq__q::after { transition: none; } }
+    /* Mission */
+    .mission__lead { display: grid; gap: 1.5rem; margin-bottom: clamp(2.5rem, 5vw, 3.5rem); }
+    .mission__label { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #5A48E0; margin-bottom: 0.6rem; }
+    .mission__text { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.25rem, 1rem + 1.2vw, 1.7rem); line-height: 1.25; color: var(--navy); max-width: 32ch; }
+    .values { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+    .value { background: var(--cream-2); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 1.5rem; }
+    .value__title { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: var(--navy); margin-bottom: 0.4rem; }
+    .value p { color: var(--ink-60); font-size: 0.95rem; line-height: 1.6; }
+    .mission__motto { margin-top: clamp(2.5rem, 5vw, 3.5rem); text-align: center; font-family: var(--font-display); font-weight: 600; font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem); color: var(--navy); letter-spacing: -0.01em; }
+    .mission__motto .serif { color: var(--pink); }
+    @media (min-width: 820px) { .mission__lead { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
+    @media (min-width: 600px) { .values { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 920px) { .values { grid-template-columns: repeat(3, 1fr); } }
   </style>
 </head>
 <body>
@@ -487,6 +500,7 @@
       <nav class="nav__links" aria-label="Primary">
         <a href="#how">How it works</a>
         <a href="#why">Why it works</a>
+          <a href="#mission">Mission</a>
         <a href="#subjects">Subjects</a>
         <a href="#beta">Join the beta</a>
         <a href="#contact">Contact</a>
@@ -499,6 +513,7 @@
         <nav aria-label="Mobile">
           <a href="#how">How it works</a>
           <a href="#why">Why it works</a>
+          <a href="#mission">Mission</a>
           <a href="#subjects">Subjects</a>
           <a href="#beta">Join the beta</a>
           <a href="#contact">Contact</a>
@@ -727,6 +742,37 @@
       </div>
     </section>
 
+    <!-- ===================== MISSION ===================== -->
+    <section class="section" id="mission">
+      <div class="wrap">
+        <div class="section__head" data-reveal>
+          <h2>What we <span class="serif">stand for</span></h2>
+        </div>
+
+        <div class="mission__lead" data-stagger>
+          <div class="mission__stmt">
+            <div class="mission__label">Vision</div>
+            <p class="mission__text">A South Africa where every matric learner, whatever their school, income or postcode, has a brilliant tutor in their pocket.</p>
+          </div>
+          <div class="mission__stmt">
+            <div class="mission__label">Mission</div>
+            <p class="mission__text">We put a patient, curriculum-grounded tutor on WhatsApp so every learner can get unstuck, master the syllabus and walk into the exam prepared.</p>
+          </div>
+        </div>
+
+        <div class="values" data-stagger>
+          <div class="value"><div class="value__title">Grounded, not guessing</div><p>Answers come from the official curriculum, not a hunch.</p></div>
+          <div class="value"><div class="value__title">Teach, don't tell</div><p>We build confidence and independence, never do the work for them.</p></div>
+          <div class="value"><div class="value__title">Access for everyone</div><p>We meet learners where they already are, on the phone in their hand.</p></div>
+          <div class="value"><div class="value__title">Exam-honest</div><p>We coach the way an examiner marks, and we keep learners on the right side of integrity.</p></div>
+          <div class="value"><div class="value__title">Calm and encouraging</div><p>Steady, warm and clear. Never condescending, never hype.</p></div>
+          <div class="value"><div class="value__title">Proudly South African</div><p>Built here, for our syllabus, our learners and our classrooms.</p></div>
+        </div>
+
+        <p class="mission__motto" data-reveal>Know the syllabus. <span class="serif">Pass with confidence.</span></p>
+      </div>
+    </section>
+
     <!-- ===================== JOIN THE BETA ===================== -->
     <section class="section section--navy" id="beta">
       <div class="wrap">
@@ -854,6 +900,7 @@
           <h4>Explore</h4>
           <a href="#how">How it works</a>
           <a href="#why">Why it works</a>
+          <a href="#mission">Mission</a>
           <a href="#subjects">Subjects</a>
           <a href="#beta">Join the beta</a>
           <a href="#contact">Contact</a>
